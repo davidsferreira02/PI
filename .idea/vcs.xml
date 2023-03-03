@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/aries-cloudagent-python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/demo/src/main/java/com/example/demo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/gs-consuming-rest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/gs-rest-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/spring-hypermedia-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/von-network" vcs="Git" />
+  </component>
+</project>

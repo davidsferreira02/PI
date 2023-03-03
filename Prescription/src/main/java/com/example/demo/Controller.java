@@ -13,7 +13,7 @@ public class Controller {
         return service.create(prescriptionDTO);
     }
 
-    @GetMapping()
+    @GetMapping("/{id}")
     public Iterable<Prescription> allPrescrpitions(){
         return service.allPrescriptions();
 
