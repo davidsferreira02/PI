@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="61f686e5-7802-44e9-9ab6-d4e37b66e549" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Prescription/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/src/main/java/com/example/demo/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/src/main/java/com/example/demo/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/src/main/java/com/example/demo/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/src/main/java/com/example/demo/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/Aca_helper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/Aca_helper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/CreateCredentialDefinitionResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/CreateCredentialDefinitionResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/CreateSchemaResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/CreateSchemaResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/CredentialDefinitionsRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/CredentialDefinitionsRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/NotfoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/NotfoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/Prescription.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/Prescription.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/PrescriptionDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/PrescriptionDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/PrescriptionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/PrescriptionRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/Schema.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/Schema.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/SpringFoxCoding.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/classes/com/example/demo/SpringFoxCoding.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prescription/target/test-classes/AcaHelperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Prescription/target/test-classes/AcaHelperTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gs-consuming-rest" beforeDir="false" afterPath="$PROJECT_DIR$/../gs-consuming-rest" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2MomNa5x0TJlMlFE7V2VARbwWhz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/davidferreira/feup/3ano/2Semestre/trabalho/demo 2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.PrescriptionApplication">
+    <configuration name="PrescriptionApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demo 2" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Prescription.PrescriptionApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PrescriptionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Prescription.PrescriptionApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="61f686e5-7802-44e9-9ab6-d4e37b66e549" name="Changes" comment="" />
+      <created>1678442270290</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678442270290</updated>
+      <workItem from="1678442272095" duration="473000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
