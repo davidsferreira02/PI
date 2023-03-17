@@ -45,14 +45,21 @@ public class Service {
 
 
     public Schema updateSchema(Long id,SchemaDTO schemaDTO) {
-        CreateSchemaResponse createSchemaResponse = aca_helper.createSchema(schemaDTO.getSchema_name(),schemaDTO.getSchema_version(),schemaDTO.getAttributes());
-        CreateCredentialDefinitionResponse credDefResp = aca_helper.createCredentialDefinition(createSchemaResponse.getSchema_id(), schemaDTO.getSchema_version());
+
+     String schemaDtoAttribute;
         Schema schema=prescriptionRepository.findById(id).orElseThrow(()->new NotfoundException("Schema with id " + id + " not found"));
-        schema.setSchema_version(schemaDTO.getSchema_version());
-        schema.setAttributes(String.join(",", schemaDTO.getAttributes()));
-        schema.setSchemaName(schemaDTO.getSchema_name());
-        schema.setCredential_definition_id(credDefResp.getCredential_definition_id());
-        schema.setSchema_id(createSchemaResponse.getSchema_id());
+        schemaDtoAttribute= (String.join(",", schemaDTO.getAttributes()));
+        if(schema.getAttributes().equals(schemaDtoAttribute)) {
+            CreateSchemaResponse createSchemaResponse = aca_helper.createSchema(schemaDTO.getSchema_name(), schemaDTO.getSchema_version(), schemaDTO.getAttributes());
+            CreateCredentialDefinitionResponse credDefResp = aca_helper.createCredentialDefinition(createSchemaResponse.getSchema_id(), schemaDTO.getSchema_version());
+            schema.setCredential_definition_id(credDefResp.getCredential_definition_id());
+            schema.setSchema_id(createSchemaResponse.getSchema_id());
+        }
+            schema.setSchema_version(schemaDTO.getSchema_version());
+            schema.setAttributes(String.join(",", schemaDTO.getAttributes()));
+            schema.setSchemaName(schemaDTO.getSchema_name());
+
+
         return prescriptionRepository.save(schema);
 
 

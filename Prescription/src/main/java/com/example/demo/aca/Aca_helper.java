@@ -14,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class Aca_helper {
     String url="http://localhost:11000/schemas";
+    String cred_defUrl="http://localhost:11000/credential-definitions";
 
     public CreateSchemaResponse createSchema(String schema_name, String schema_version, String[] attributes){
 
@@ -37,7 +38,7 @@ public class Aca_helper {
         credentialDefinitionsRequest.setTag(tag);
         HttpEntity<CredentialDefinitionsRequest> entity= new HttpEntity<>(credentialDefinitionsRequest);
         RestTemplate restTemplate=new RestTemplate();
-        ResponseEntity <CreateCredentialDefinitionResponse> res=restTemplate.exchange(url, HttpMethod.POST,entity, CreateCredentialDefinitionResponse.class);
+        ResponseEntity <CreateCredentialDefinitionResponse> res=restTemplate.exchange(cred_defUrl, HttpMethod.POST,entity, CreateCredentialDefinitionResponse.class);
 
         return res.getBody();
     }

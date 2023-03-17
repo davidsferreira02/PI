@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: AcaHelperTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 122.838 s <<< FAILURE! - in AcaHelperTest
+createCredentialDefinition  Time elapsed: 61.414 s  <<< ERROR!
+org.springframework.web.client.HttpClientErrorException$BadRequest: 400 Exception raised by ledger transaction: Error: Pool timeout. Caused by: Consensus is impossible. PoolLedgerTimeout.: "400: Exception raised by ledger transaction: Error: Pool timeout. Caused by: Consensus is impossible. PoolLedgerTimeout."
+	at AcaHelperTest.createCredentialDefinition(AcaHelperTest.java:33)
+
+createSchemaTest  Time elapsed: 60.397 s  <<< ERROR!
+org.springframework.web.client.HttpClientErrorException$BadRequest: 400 Exception raised by ledger transaction: Error: Pool timeout. Caused by: Consensus is impossible. PoolLedgerTimeout.: "400: Exception raised by ledger transaction: Error: Pool timeout. Caused by: Consensus is impossible. PoolLedgerTimeout."
+	at AcaHelperTest.createSchemaTest(AcaHelperTest.java:22)
+

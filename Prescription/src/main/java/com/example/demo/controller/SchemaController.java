@@ -32,12 +32,12 @@ public class SchemaController {
 
 
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping(value="/{id}")
     public void delete( @PathVariable Long id){
         service.deleteSchema(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(value="/{id}")
     public Schema update(@PathVariable Long id, @RequestBody SchemaDTO schemaDTO) {
 
         return service.updateSchema(id,schemaDTO);
