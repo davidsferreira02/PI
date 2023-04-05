@@ -45,6 +45,12 @@
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>network.idu.acapy</groupId>
+            <artifactId>aries-client-python</artifactId>
+            <version>0.7.33</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

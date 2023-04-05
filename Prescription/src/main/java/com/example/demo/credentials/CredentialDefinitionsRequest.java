@@ -1,6 +1,9 @@
 package com.example.demo.credentials;
 
 public class CredentialDefinitionsRequest {
+
+    private String schema_id;
+    private String tag;
     public String getSchema_id() {
         return schema_id;
     }
@@ -17,6 +20,5 @@ public class CredentialDefinitionsRequest {
         this.tag = tag;
     }
 
-    private String schema_id;
-    private String tag;
+
 }
