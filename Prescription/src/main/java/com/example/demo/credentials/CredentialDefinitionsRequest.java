@@ -1,15 +1,53 @@
-package com.example.demo.credentials;
+/*package com.example.demo.credentials;
 
-public class CredentialDefinitionsRequest {
+import lombok.NonNull;
+import okhttp3.HttpUrl;
+import org.hyperledger.aries.api.endorser.EndorserInfoFilter;
+import org.hyperledger.aries.api.out_of_band.CreateInvitationFilter;
 
-    private String schema_id;
+public class CredentialDefinitionsRequest extends @NonNull EndorserInfoFilter {
+
+
+    private Integer revocationRegistrySize;
+
+
+
+
+
+    private String schemaId;
+    private Boolean supportRevocation;
     private String tag;
-    public String getSchema_id() {
-        return schema_id;
+
+    public CredentialDefinitionsRequest(Integer revocationRegistrySize, String schemaId, Boolean supportRevocation, String tag) {
+        //super(endorserInfoFilter)
+        this.revocationRegistrySize = revocationRegistrySize;
+        this.schemaId = schemaId;
+        this.supportRevocation = supportRevocation;
+        this.tag = tag;
     }
 
-    public void setSchema_id(String schema_id) {
-        this.schema_id = schema_id;
+    public Integer getRevocationRegistrySize() {
+        return revocationRegistrySize;
+    }
+
+    public void setRevocationRegistrySize(Integer revocationRegistrySize) {
+        this.revocationRegistrySize = revocationRegistrySize;
+    }
+
+    public String getSchemaId() {
+        return schemaId;
+    }
+
+    public void setSchemaId(String schemaId) {
+        this.schemaId = schemaId;
+    }
+
+    public Boolean getSupportRevocation() {
+        return supportRevocation;
+    }
+
+    public void setSupportRevocation(Boolean supportRevocation) {
+        this.supportRevocation = supportRevocation;
     }
 
     public String getTag() {
@@ -20,5 +58,9 @@ public class CredentialDefinitionsRequest {
         this.tag = tag;
     }
 
-
+    @Override
+    public HttpUrl.Builder buildParams(HttpUrl.@NonNull Builder b) {
+        return super.buildParams(b);
+    }
 }
+*/

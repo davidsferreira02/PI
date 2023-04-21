@@ -8,6 +8,8 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/schema")
 @RequiredArgsConstructor
@@ -18,8 +20,11 @@ public class SchemaController {
     @NonNull
     private final Service service;
 
+
     @PostMapping("")
-    public Schema create(@RequestBody() SchemaDTO schemaDTO){
+    public Schema create(@RequestBody() SchemaDTO schemaDTO) throws IOException {
+
+
 
         return service.createSchema(schemaDTO);
     }
@@ -38,7 +43,7 @@ public class SchemaController {
     }
 
     @PutMapping(value="/{id}")
-    public Schema update(@PathVariable Long id, @RequestBody SchemaDTO schemaDTO) {
+    public Schema update(@PathVariable Long id, @RequestBody SchemaDTO schemaDTO) throws IOException {
 
         return service.updateSchema(id,schemaDTO);
     }
