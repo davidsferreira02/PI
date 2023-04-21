@@ -15,8 +15,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class SchemaController {
 
-    @NonNull
-    private final PrescriptionRepository prescriptionRepository;
+
     @NonNull
     private final Service service;
 
@@ -25,27 +24,27 @@ public class SchemaController {
     public Schema create(@RequestBody() SchemaDTO schemaDTO) throws IOException {
 
 
-
         return service.createSchema(schemaDTO);
     }
 
     @GetMapping("")
-    public Iterable<Schema> allPrescrpitions(){
+    public Iterable<Schema> allPrescrpitions() {
 
 
         return service.allSchemas();
 
 
     }
-    @DeleteMapping(value="/{id}")
-    public void delete( @PathVariable Long id){
+
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable Long id) {
         service.deleteSchema(id);
     }
 
-    @PutMapping(value="/{id}")
+    @PutMapping(value = "/{id}")
     public Schema update(@PathVariable Long id, @RequestBody SchemaDTO schemaDTO) throws IOException {
 
-        return service.updateSchema(id,schemaDTO);
+        return service.updateSchema(id, schemaDTO);
     }
 
 

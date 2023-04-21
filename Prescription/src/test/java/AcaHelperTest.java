@@ -1,15 +1,7 @@
 import com.example.demo.aca.Aca_helper;
-import com.example.demo.response.CreateCredentialDefinitionResponse;
 import com.example.demo.credentials.CredentialDefinitionsRequest;
-import com.example.demo.response.CreateSchemaResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.UUID;
 
 
 @SpringBootTest(classes= Aca_helper.class)
