@@ -1,10 +1,9 @@
-import com.example.demo.aca.Aca_helper;
 import com.example.demo.credentials.CredentialDefinitionsRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
-@SpringBootTest(classes= Aca_helper.class)
+@SpringBootTest(classes= AriesHelper.class)
 public class AcaHelperTest {
 
 
