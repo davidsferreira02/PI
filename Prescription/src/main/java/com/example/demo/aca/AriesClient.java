@@ -1,12 +1,10 @@
 package com.example.demo.aca;
 
 import com.example.demo.aca.dto.*;
-import kotlin.collections.ArrayDeque;
 import lombok.NonNull;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AriesClient {
@@ -57,21 +55,9 @@ public class AriesClient {
     }
 
 
-    public AcceptInvitationResponseDTO acceptInvitation(@NonNull ReceivedInvitationResponseDTO receivedInvitationResponseDTO) {
-        String connection = getConnectionByMessageId(receivedInvitationResponseDTO.getInvitation_msg_id());
-        String url = "";
-
-
-        if (acapyHost.equals("localhost:11001")) {
-            receivedInvitationResponseDTO.setConnection_id(connection);
-            url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(DIDEXCHANGE_ACCEPT_INVITATION.replace("<CONNECTION_ID>", connection)).build().toUriString();
-        } else if (acapyHost.equals("localhost:11000")) {
-            url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(DIDEXCHANGE_ACCEPT_REQUEST.replace("<CONNECTION_ID>", receivedInvitationResponseDTO.getConnection_id())).build().toUriString();
-
-        }
-
+    public AcceptInvitationResponseDTO acceptInvitation(@NonNull String connectionId) {
+        String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(DIDEXCHANGE_ACCEPT_INVITATION.replace("<CONNECTION_ID>", connectionId)).build().toUriString();
         return restTemplate.postForObject(url, null, AcceptInvitationResponseDTO.class);
-
     }
 
     public String getConnectionByMessageId(String invitationMessageId) {
@@ -90,6 +76,12 @@ public class AriesClient {
         return restTemplate.getForObject(url, ConnectionsResponseDTO.class);
     }
 
+    public AcceptInvitationResponseDTO acceptRequest(ReceivedInvitationResponseDTO receivedInvitationResponseDTO){
+        String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(DIDEXCHANGE_ACCEPT_REQUEST.replace("<CONNECTION_ID>", receivedInvitationResponseDTO.getConnection_id())).build().toUriString();
+        return restTemplate.postForObject(url, null, AcceptInvitationResponseDTO.class);
+
+    }
+
 
     public SchemaResponseDTO schema(SchemaDTO schemaDTO) {
         String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(SCHEMAS).build().toUriString();
@@ -99,14 +91,15 @@ public class AriesClient {
     }
 
 
-    public CredentialDefinitionDTO credentialDefinitions(CredentialDefinitionDTO credentialDefinitionDTO) {
+    public CredentialDefinitionResponseDTO credentialDefinitions(CredentialDefinitionDTO credentialDefinitionDTO) {
         String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(CREDENTIAL_DEFINITIONS).build().toUriString();
-        return restTemplate.postForObject(url, credentialDefinitionDTO, CredentialDefinitionDTO.class);
+        return restTemplate.postForObject(url, credentialDefinitionDTO, CredentialDefinitionResponseDTO.class);
     }
 
 
-    public void sendProposal() {
-
+    public SendProposalResponseDTO sendProposal(SendProposalDTO sendProposalDTO) {
+        String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(ISSUE_CREDENTIAL_SEND_PROPOSAL).build().toUriString();
+        return restTemplate.postForObject(url,sendProposalDTO,SendProposalResponseDTO.class);
     }
 
     public void sendOffer() { //@NonNull String cred_ex_id

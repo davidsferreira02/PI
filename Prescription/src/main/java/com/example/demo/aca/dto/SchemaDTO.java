@@ -14,19 +14,10 @@ import java.util.List;
 public class SchemaDTO {
 
     @JsonProperty("attributes")
-    private List<Attributes> attributes;
+    private List<String> attributes;
     @JsonProperty("schema_name")
     private String schema_name;
     @JsonProperty("schema_version")
     String schema_version;
 
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public class Attributes {
-
-        String attribute;
-
-
-    }
 }

@@ -22,16 +22,20 @@ public class HolderHelper {
     }
 
 
-    public ReceivedInvitationResponseDTO outOfBandReceiveInvitation(InvitationDTO invitationDTO) throws IOException {
+    public ReceivedInvitationResponseDTO outOfBandReceiveInvitation(InvitationDTO invitationDTO) {
         return holderClient.receivedInvitation(invitationDTO);
     }
 
-    public AcceptInvitationResponseDTO didExchangeAcceptInvitation(ReceivedInvitationResponseDTO receivedInvitationResponseDTO) throws IOException {
-        return holderClient.acceptInvitation(receivedInvitationResponseDTO);
+    public AcceptInvitationResponseDTO didExchangeAcceptInvitation(String connectionId) {
+        return holderClient.acceptInvitation(connectionId);
     }
 
     public ConnectionsResponseDTO connections() {
         return holderClient.getConnections();
+    }
+
+    public SendProposalResponseDTO sendProposal(SendProposalDTO sendProposalDTO){
+        return holderClient.sendProposal(sendProposalDTO);
     }
 
 /*

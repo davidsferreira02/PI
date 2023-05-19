@@ -38,26 +38,10 @@ public class IssuerController {
 
         return issuerService.schema(schemaDTO);
     }
-/*
-    @GetMapping("/all")
-    public Iterable<Schema> allPrescrpitions() {
-
-
-        return issuerService.allSchemas();
-
-
+    @PostMapping("/credential-definitions")
+    public CredentialDefinitionResponseDTO credentialDefinitions(@RequestBody() CredentialDefinitionDTO credentialDefinitionDTO){
+        return issuerService.credentialDefinition(credentialDefinitionDTO);
     }
 
-    @DeleteMapping(value = "/{id}")
-    public void deleteSchema(@PathVariable Long id) {
-        issuerService.deleteSchema(id);
-    }
 
-    @PutMapping(value = "/{id}")
-    public Schema updateSchema(@PathVariable Long id, @RequestBody SchemaDTO schemaDTO) throws IOException {
-
-        return issuerService.updateSchema(id, schemaDTO);
-    }
-
-*/
 }

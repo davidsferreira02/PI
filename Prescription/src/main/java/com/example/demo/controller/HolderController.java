@@ -29,18 +29,16 @@ public class HolderController {
         return holderService.receivedConnection(invitationDTO);
     }
 
-    @PostMapping("/accept-invitation")
-    public AcceptInvitationResponseDTO acceptConnection(@RequestBody ReceivedInvitationResponseDTO receivedInvitationResponseDTO) throws IOException {
-
-        return holderService.acceptConnectionInvitation(receivedInvitationResponseDTO);
-
-    }
-
-    @GetMapping("connections")
+    @GetMapping("/connections")
     public ConnectionsResponseDTO connections() {
 
         return holderService.connections();
 
+    }
+
+    @PostMapping("/send-proposal")
+    public SendProposalResponseDTO sendProposal(@RequestBody SendProposalDTO sendProposalDTO){
+        return holderService.sendProposal(sendProposalDTO);
     }
 
 

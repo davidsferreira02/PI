@@ -31,17 +31,11 @@ public class SchemaResponseDTO {
         @JsonProperty("version")
         private String version;
         @JsonProperty("attrNames")
-        private List<Attribute> attrNames;
+        private List<String> attrNames;
         @JsonProperty("seqNo")
         private int seqNo;
 
-        @Data
-        @NoArgsConstructor
-        @AllArgsConstructor
 
-        public class Attribute {
-            public String name;
-        }
 
     }
 

@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -26,19 +24,20 @@ public class IssuerHelper {
     }
 
     public AcceptInvitationResponseDTO didExchangeAcceptRequest(ReceivedInvitationResponseDTO receivedInvitationResponseDTO) throws IOException {
-        return issuerClient.acceptInvitation(receivedInvitationResponseDTO);
+        return issuerClient.acceptRequest(receivedInvitationResponseDTO);
     }
 
     public SchemaResponseDTO schema(SchemaDTO schemaDTO) {
         return issuerClient.schema(schemaDTO);
     }
 
-    /*
 
-    public Optional<CredentialDefinition.CredentialDefinitionResponse> credentialDefinition(CredentialDefinition.CredentialDefinitionRequest defReq) throws IOException {
-        return issuerClient.credentialDefinitionsCreate(defReq);
+
+    public CredentialDefinitionResponseDTO credentialDefinition(CredentialDefinitionDTO credentialDefinitionDTO)  {
+        return issuerClient.credentialDefinitions(credentialDefinitionDTO);
     }
 
+    /*
     public Optional<V20CredExRecord> sendOffer(String credentialExchangeId, V20CredBoundOfferRequest offerRequest) throws IOException {
         return issuerClient.issueCredentialV2RecordsSendOffer(credentialExchangeId, offerRequest);
 

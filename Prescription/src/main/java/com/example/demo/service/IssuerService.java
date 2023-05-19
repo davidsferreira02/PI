@@ -32,5 +32,9 @@ public class IssuerService {
         return issuerHelper.schema(schemaDTO);
     }
 
+    public CredentialDefinitionResponseDTO credentialDefinition(CredentialDefinitionDTO credentialDefinitionDTO){
+        return issuerHelper.credentialDefinition(credentialDefinitionDTO);
+    }
+
 
 }
