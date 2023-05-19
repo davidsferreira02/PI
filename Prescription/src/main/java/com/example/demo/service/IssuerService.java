@@ -1,9 +1,12 @@
 package com.example.demo.service;
 
 import com.example.demo.Repository.PrescriptionRepository;
+import com.example.demo.aca.AriesClient;
 import com.example.demo.aca.IssuerHelper;
+import com.example.demo.aca.dto.AcceptInvitationResponseDTO;
 import com.example.demo.aca.dto.CreateInvitationResponseDTO;
 import com.example.demo.aca.dto.InvitationDTO;
+import com.example.demo.aca.dto.ReceivedInvitationResponseDTO;
 import com.example.demo.dto.SchemaDTO;
 import com.example.demo.exception.NotfoundException;
 import com.example.demo.model.Schema;
@@ -33,20 +36,20 @@ public class IssuerService {
     @NonNull
     private final IssuerHelper issuerHelper;
 
+
+
     public InvitationDTO createConnection() throws IOException {
         CreateInvitationResponseDTO createConnection = issuerHelper.outOfBandCreateInvitation();
         return createConnection.getInvitation();
     }
 
 
-/*
-    public Optional<ConnectionRecord> acceptConnectionRequest(String invitationMessageId) throws IOException {
 
-        DidExchangeAcceptRequestFilter filter = DidExchangeAcceptRequestFilter.builder().build();
-        String connectionId = issuerHelper.getConnectionId(invitationMessageId);
-        return issuerHelper.didExchangeAcceptRequest(connectionId, filter);
+    public AcceptInvitationResponseDTO acceptConnectionRequest(ReceivedInvitationResponseDTO receivedInvitationResponseDTO) throws IOException {
+
+        return issuerHelper.didExchangeAcceptRequest(receivedInvitationResponseDTO);
     }
-
+/*
 
     public Schema createSchema(SchemaDTO schemaDTO) throws IOException {
         Optional<SchemaSendResponse> createSchemaResponse = issuerHelper.createSchema(SchemaSendRequest.builder().attributes(schemaDTO.getAttributes()).schemaName(schemaDTO.getSchema_name()).schemaVersion(schemaDTO.getSchema_version()).build());

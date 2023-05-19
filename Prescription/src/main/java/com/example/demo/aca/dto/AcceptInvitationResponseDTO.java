@@ -7,20 +7,19 @@ import lombok.NoArgsConstructor;
 
 
 @Data
-
 @NoArgsConstructor
-
 @AllArgsConstructor
+public class AcceptInvitationResponseDTO {
 
-public class ReceivedInvitationResponseDTO {
+    @JsonProperty("request_id")
+    private String request_id;
 
     @JsonProperty("connection_id")
-
     private String connection_id;
 
     @JsonProperty("invitation_msg_id")
     private String invitation_msg_id;
 
 
-}
 
+}

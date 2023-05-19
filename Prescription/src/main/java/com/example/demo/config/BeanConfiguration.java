@@ -15,12 +15,12 @@ public class BeanConfiguration {
 
     @Bean
     public AriesClient holderClient() {
-        return new AriesClient("http://localhost:11001", new RestTemplate());
+        return new AriesClient("localhost:11001", new RestTemplate());
     }
 
     @Bean
     public AriesClient verifierClient() {
-        return new AriesClient("http://localhost:11001", new RestTemplate());
+        return new AriesClient("localhost:11001", new RestTemplate());
     }
 
 }

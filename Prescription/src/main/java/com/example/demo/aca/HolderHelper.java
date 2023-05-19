@@ -1,10 +1,8 @@
 package com.example.demo.aca;
 
 
-import com.example.demo.aca.dto.CreateInvitationDTO;
-import com.example.demo.aca.dto.CreateInvitationResponseDTO;
-import com.example.demo.aca.dto.ReceiveInvitationDTO;
-import com.example.demo.aca.dto.ReceivedInvitationResponseDTO;
+import com.example.demo.aca.dto.*;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +13,7 @@ import java.util.Optional;
 public class HolderHelper {
 
 
+    @NonNull
     private AriesClient holderClient;
 
 
@@ -24,8 +23,12 @@ public class HolderHelper {
 
 
 
-    public ReceivedInvitationResponseDTO outOfBandReceiveInvitation() throws IOException {
-        return holderClient.receivedInvitation(new ReceiveInvitationDTO());
+    public ReceivedInvitationResponseDTO outOfBandReceiveInvitation(InvitationDTO invitationDTO) throws IOException {
+        return holderClient.receivedInvitation(invitationDTO);
+    }
+
+    public void outOfBandAcceptInvitation(){
+
     }
 
 /*

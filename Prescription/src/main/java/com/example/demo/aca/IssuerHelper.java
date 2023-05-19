@@ -1,6 +1,5 @@
 package com.example.demo.aca;
-import com.example.demo.aca.dto.CreateInvitationDTO;
-import com.example.demo.aca.dto.CreateInvitationResponseDTO;
+import com.example.demo.aca.dto.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -25,14 +24,16 @@ public class IssuerHelper {
         return issuerClient.createInvitation(new CreateInvitationDTO());
     }
 
+
+    public AcceptInvitationResponseDTO didExchangeAcceptRequest(ReceivedInvitationResponseDTO receivedInvitationResponseDTO) throws IOException {
+        return issuerClient.acceptInvitation(receivedInvitationResponseDTO);
+    }
 /*
-    public Optional<ConnectionRecord> didExchangeAcceptRequest(String connectionId, DidExchangeAcceptRequestFilter filter) throws IOException {
-        return issuerClient.didExchangeAcceptRequest(connectionId, filter);
+    public SchemaResponseDTO createSchema() throws IOException {
+        return issuerClient.schema(new SchemaDTO());
     }
 
-    public Optional<SchemaSendResponse> createSchema(SchemaSendRequest schema) throws IOException {
-        return issuerClient.schemas(schema);
-    }
+    /*
 
     public Optional<CredentialDefinition.CredentialDefinitionResponse> credentialDefinition(CredentialDefinition.CredentialDefinitionRequest defReq) throws IOException {
         return issuerClient.credentialDefinitionsCreate(defReq);

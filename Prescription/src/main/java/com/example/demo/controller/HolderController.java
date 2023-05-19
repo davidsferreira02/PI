@@ -1,5 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.aca.AriesClient;
+import com.example.demo.aca.HolderHelper;
+import com.example.demo.aca.dto.CreateInvitationResponseDTO;
+import com.example.demo.aca.dto.InvitationDTO;
 import com.example.demo.aca.dto.ReceivedInvitationResponseDTO;
 import com.example.demo.service.HolderService;
 import lombok.NonNull;
@@ -22,13 +26,15 @@ public class HolderController {
 
 
     @NonNull
-    private HolderService holderService;
+    private final HolderService holderService;
 
-/*@PostMapping("/ReceivedConnection")
-    public ReceivedInvitationResponseDTO receivedAcceptConnection() throws IOException {
-        return holderService.receiveAcceptConnection();
+
+
+@PostMapping("/ReceivedConnection")
+    public ReceivedInvitationResponseDTO receivedConnection(@RequestBody InvitationDTO invitationDTO) throws IOException {
+    return holderService.receivedConnection(invitationDTO);
     }
-*/
+
 
 
 

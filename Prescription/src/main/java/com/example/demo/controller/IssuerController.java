@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.aca.dto.AcceptInvitationResponseDTO;
 import com.example.demo.aca.dto.CreateInvitationResponseDTO;
 import com.example.demo.aca.dto.InvitationDTO;
+import com.example.demo.aca.dto.ReceivedInvitationResponseDTO;
 import com.example.demo.dto.SchemaDTO;
 import com.example.demo.model.Schema;
 import com.example.demo.service.IssuerService;
@@ -28,14 +30,14 @@ public class IssuerController {
     public InvitationDTO createConnection() throws IOException {
         return issuerService.createConnection();
     }
-/*
-@PostMapping("/Accept")
-    public Optional<ConnectionRecord> acceptConnection(String invitationMessageId) throws IOException {
 
-        return issuerService.acceptConnectionRequest(invitationMessageId);
+@PostMapping("/Accept")
+    public AcceptInvitationResponseDTO acceptConnection(@RequestBody ReceivedInvitationResponseDTO receivedInvitationResponseDTO) throws IOException {
+
+        return issuerService.acceptConnectionRequest(receivedInvitationResponseDTO);
 
     }
-
+/*
 
     @PostMapping("/CreateSchema")
     public Schema createSchema(@RequestBody() SchemaDTO schemaDTO) throws IOException {

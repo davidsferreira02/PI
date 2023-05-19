@@ -9,10 +9,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AcceptRequestDTO {
 
+public class CredentialDefinitionDTO {
 
-    @JsonProperty("connection_id")
-    private String connection_id;
+@JsonProperty("schema_id")
+    private String schema_id;
+
+@JsonProperty("tag")
+    private String tag;
+
 
 }
