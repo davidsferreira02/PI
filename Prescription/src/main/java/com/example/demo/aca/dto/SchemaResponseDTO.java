@@ -21,7 +21,7 @@ public class SchemaResponseDTO {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-public class Schema {
+    public class Schema {
         @JsonProperty("ver")
         private String ver;
         @JsonProperty("id")
@@ -39,11 +39,11 @@ public class Schema {
         @NoArgsConstructor
         @AllArgsConstructor
 
-  public class Attribute{
-      public String name;
-  }
+        public class Attribute {
+            public String name;
+        }
 
-}
+    }
 
 
 }

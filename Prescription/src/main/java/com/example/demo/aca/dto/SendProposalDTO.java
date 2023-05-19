@@ -18,8 +18,7 @@ public class SendProposalDTO {
     private String comment;
 
     @JsonProperty("connection_id")
-        private String connection_id;
-
+    private String connection_id;
 
 
     @JsonProperty("credential_preview")
@@ -27,9 +26,6 @@ public class SendProposalDTO {
 
     @JsonProperty("filter")
     private Filter filter;
-
-
-
 
 
     @Data
@@ -51,7 +47,7 @@ public class SendProposalDTO {
     @NoArgsConstructor
 
     @AllArgsConstructor
-    public class Attributes{
+    public class Attributes {
 
         @JsonProperty("mine-type")
         private String mine_type;
@@ -63,8 +59,8 @@ public class SendProposalDTO {
         private String value;
 
 
-
     }
+
     @Data
 
     @NoArgsConstructor
@@ -73,12 +69,10 @@ public class SendProposalDTO {
     public class Filter {
 
         @JsonProperty("dif")
-        List <String> dif;
+        List<String> dif;
         @JsonProperty("indy")
-        List <String> indy;
+        List<String> indy;
     }
-
-
 
 
 }

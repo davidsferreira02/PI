@@ -2,6 +2,8 @@ package com.example.demo.service;
 
 
 import com.example.demo.aca.HolderHelper;
+import com.example.demo.aca.dto.AcceptInvitationResponseDTO;
+import com.example.demo.aca.dto.ConnectionsResponseDTO;
 import com.example.demo.aca.dto.InvitationDTO;
 import com.example.demo.aca.dto.ReceivedInvitationResponseDTO;
 import lombok.NonNull;
@@ -23,9 +25,15 @@ public class HolderService {
         return receivedInvitationResponseDTO;
     }
 
+    public AcceptInvitationResponseDTO acceptConnectionInvitation(ReceivedInvitationResponseDTO receivedInvitationResponseDTO) throws IOException {
 
+        return holderHelper.didExchangeAcceptInvitation(receivedInvitationResponseDTO);
+    }
 
+    public ConnectionsResponseDTO connections() {
+        return holderHelper.connections();
 
+    }
 
 
 }

@@ -1,20 +1,13 @@
 package com.example.demo.controller;
 
-import com.example.demo.aca.dto.AcceptInvitationResponseDTO;
-import com.example.demo.aca.dto.CreateInvitationResponseDTO;
-import com.example.demo.aca.dto.InvitationDTO;
-import com.example.demo.aca.dto.ReceivedInvitationResponseDTO;
-import com.example.demo.dto.SchemaDTO;
-import com.example.demo.model.Schema;
+import com.example.demo.aca.dto.*;
+
 import com.example.demo.service.IssuerService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.hyperledger.acy_py.generated.model.InvitationMessage;
-import org.hyperledger.aries.api.connection.ConnectionRecord;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.Optional;
 
 
 @RestController
@@ -26,26 +19,26 @@ public class IssuerController {
     @NonNull
     private final IssuerService issuerService;
 
-@PostMapping("/Create")
+    @PostMapping("/create-invitation")
     public InvitationDTO createConnection() throws IOException {
         return issuerService.createConnection();
     }
 
-@PostMapping("/Accept")
-    public AcceptInvitationResponseDTO acceptConnection(@RequestBody ReceivedInvitationResponseDTO receivedInvitationResponseDTO) throws IOException {
+    @PostMapping("/accept-request")
+    public AcceptInvitationResponseDTO acceptConnectionRequest(@RequestBody ReceivedInvitationResponseDTO receivedInvitationResponseDTO) throws IOException {
 
-        return issuerService.acceptConnectionRequest(receivedInvitationResponseDTO);
+        return issuerService.acceptConnectionInvitationRequest(receivedInvitationResponseDTO);
 
+    }
+
+
+    @PostMapping("/schemas")
+    public SchemaResponseDTO schema(@RequestBody() SchemaDTO schemaDTO) {
+
+
+        return issuerService.schema(schemaDTO);
     }
 /*
-
-    @PostMapping("/CreateSchema")
-    public Schema createSchema(@RequestBody() SchemaDTO schemaDTO) throws IOException {
-
-
-        return issuerService.createSchema(schemaDTO);
-    }
-
     @GetMapping("/all")
     public Iterable<Schema> allPrescrpitions() {
 

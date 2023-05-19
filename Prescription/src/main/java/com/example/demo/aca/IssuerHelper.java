@@ -1,4 +1,5 @@
 package com.example.demo.aca;
+
 import com.example.demo.aca.dto.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -20,17 +21,16 @@ public class IssuerHelper {
     }
 
 
-    public CreateInvitationResponseDTO outOfBandCreateInvitation() throws IOException {
+    public CreateInvitationResponseDTO outOfBandCreateInvitation() {
         return issuerClient.createInvitation(new CreateInvitationDTO());
     }
-
 
     public AcceptInvitationResponseDTO didExchangeAcceptRequest(ReceivedInvitationResponseDTO receivedInvitationResponseDTO) throws IOException {
         return issuerClient.acceptInvitation(receivedInvitationResponseDTO);
     }
-/*
-    public SchemaResponseDTO createSchema() throws IOException {
-        return issuerClient.schema(new SchemaDTO());
+
+    public SchemaResponseDTO schema(SchemaDTO schemaDTO) {
+        return issuerClient.schema(schemaDTO);
     }
 
     /*
@@ -49,8 +49,8 @@ public class IssuerHelper {
     }*/
 
     //public String getConnectionId(String msgId) throws IOException {
-        //Optional<List<ConnectionRecord>> connections = issuerClient.connections(ConnectionFilter.builder().build());
-        //    return connections.map(connectionRecords -> connectionRecords.stream().filter(c -> c.getInvitationMsgId().equals(msgId)).map(ConnectionRecord::getConnectionId).findFirst().get()).orElse(null);
+    //Optional<List<ConnectionRecord>> connections = issuerClient.connections(ConnectionFilter.builder().build());
+    //    return connections.map(connectionRecords -> connectionRecords.stream().filter(c -> c.getInvitationMsgId().equals(msgId)).map(ConnectionRecord::getConnectionId).findFirst().get()).orElse(null);
     //}
 
 

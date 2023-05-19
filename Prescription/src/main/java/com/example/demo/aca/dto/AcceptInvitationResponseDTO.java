@@ -21,5 +21,4 @@ public class AcceptInvitationResponseDTO {
     private String invitation_msg_id;
 
 
-
 }
