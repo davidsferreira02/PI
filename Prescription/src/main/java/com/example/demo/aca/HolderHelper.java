@@ -6,9 +6,6 @@ import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.util.Optional;
-
 @Service
 public class HolderHelper {
 
@@ -34,7 +31,7 @@ public class HolderHelper {
         return holderClient.getConnections();
     }
 
-    public SendProposalResponseDTO sendProposal(SendProposalDTO sendProposalDTO){
+    public SendProposalResponseDTO sendProposal(SendProposalDTO sendProposalDTO) {
         return holderClient.sendProposal(sendProposalDTO);
     }
 

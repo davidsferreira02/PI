@@ -5,19 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateInvitationResponseDTO {
+public class AcceptRequestDTO {
 
-    @JsonProperty("invi_msg_id")
-    private String inviMsgId;
-
-
-    @JsonProperty("invitation")
-    private InvitationDTO invitation;
-
-
+    @JsonProperty("invitation_msg_id")
+    private String invitation_msg_id;
 
 
 }

@@ -76,9 +76,10 @@ public class AriesClient {
         return restTemplate.getForObject(url, ConnectionsResponseDTO.class);
     }
 
-    public AcceptInvitationResponseDTO acceptRequest(ReceivedInvitationResponseDTO receivedInvitationResponseDTO){
-        String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(DIDEXCHANGE_ACCEPT_REQUEST.replace("<CONNECTION_ID>", receivedInvitationResponseDTO.getConnection_id())).build().toUriString();
-        return restTemplate.postForObject(url, null, AcceptInvitationResponseDTO.class);
+    public AcceptRequestResponseDTO acceptRequest(AcceptRequestDTO acceptRequestDTO) {
+        String connectionId=getConnectionByMessageId(acceptRequestDTO.getInvitation_msg_id());
+        String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(DIDEXCHANGE_ACCEPT_REQUEST.replace("<CONNECTION_ID>",connectionId)).build().toUriString();
+        return restTemplate.postForObject(url, null, AcceptRequestResponseDTO.class);
 
     }
 
@@ -99,24 +100,13 @@ public class AriesClient {
 
     public SendProposalResponseDTO sendProposal(SendProposalDTO sendProposalDTO) {
         String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(ISSUE_CREDENTIAL_SEND_PROPOSAL).build().toUriString();
-        return restTemplate.postForObject(url,sendProposalDTO,SendProposalResponseDTO.class);
+        return restTemplate.postForObject(url, sendProposalDTO, SendProposalResponseDTO.class);
     }
 
-    public void sendOffer() { //@NonNull String cred_ex_id
 
-    }
 
-    public void sendRequest() { //@NonNull String cred_ex_id
 
-    }
 
-    public void issue() { // String Comment
-
-    }
-
-    public void store() { // String credential_id
-
-    }
 
 
 }

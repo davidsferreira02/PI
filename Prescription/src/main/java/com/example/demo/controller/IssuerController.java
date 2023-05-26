@@ -20,14 +20,14 @@ public class IssuerController {
     private final IssuerService issuerService;
 
     @PostMapping("/create-invitation")
-    public InvitationDTO createConnection() throws IOException {
+    public InvitationDTO createConnection()  {
         return issuerService.createConnection();
     }
 
     @PostMapping("/accept-request")
-    public AcceptInvitationResponseDTO acceptConnectionRequest(@RequestBody ReceivedInvitationResponseDTO receivedInvitationResponseDTO) throws IOException {
+    public AcceptRequestResponseDTO acceptConnectionRequest(@RequestBody AcceptRequestDTO acceptRequestDTO)  {
 
-        return issuerService.acceptConnectionInvitationRequest(receivedInvitationResponseDTO);
+        return issuerService.acceptConnectionInvitationRequest(acceptRequestDTO);
 
     }
 

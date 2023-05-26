@@ -22,9 +22,9 @@ public class IssuerService {
         return createConnection.getInvitation();
     }
 
-    public AcceptInvitationResponseDTO acceptConnectionInvitationRequest(ReceivedInvitationResponseDTO receivedInvitationResponseDTO) throws IOException {
+    public AcceptRequestResponseDTO acceptConnectionInvitationRequest(AcceptRequestDTO acceptRequestDTO)  {
 
-        return issuerHelper.didExchangeAcceptRequest(receivedInvitationResponseDTO);
+        return issuerHelper.didExchangeAcceptRequest(acceptRequestDTO);
     }
 
 

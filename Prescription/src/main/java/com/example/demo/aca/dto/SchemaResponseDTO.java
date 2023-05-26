@@ -36,7 +36,6 @@ public class SchemaResponseDTO {
         private int seqNo;
 
 
-
     }
 
 
