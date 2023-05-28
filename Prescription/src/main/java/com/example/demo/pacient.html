@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Prescriptions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Medical Prescriptions</h1>
+
+    <div id="prescriptions-container"></div>
+</div>
+
+<script>
+    // Simulated data of medical prescriptions for the patient
+    const prescriptions = [
+        {
+            doctor: 'Dr. Smith',
+            medication: 'Medication A',
+            date: '2023-05-27'
+        },
+        {
+            doctor: 'Dr. Johnson',
+            medication: 'Medication B',
+            date: '2023-05-20'
+        },
+        {
+            doctor: 'Dr. Wilson',
+            medication: 'Medication C',
+            date: '2023-05-15'
+        }
+    ];
+
+    const prescriptionsContainer = document.getElementById('prescriptions-container');
+
+    // Display the prescriptions on the page
+    prescriptions.forEach(prescription => {
+        const prescriptionItem = document.createElement('div');
+        prescriptionItem.classList.add('card');
+        prescriptionItem.innerHTML = `
+                <h2>Prescription</h2>
+                <p>Doctor: ${prescription.doctor}</p>
+                <p>Medication: ${prescription.medication}</p>
+                <p>Date: ${prescription.date}</p>
+            `;
+        prescriptionsContainer.appendChild(prescriptionItem);
+    });
+</script>
+</body>
+</html>

@@ -17,9 +17,9 @@ public class IssuerService {
     private final IssuerHelper issuerHelper;
 
 
-    public InvitationDTO createConnection() {
+    public CreateInvitationResponseDTO createConnection() {
         CreateInvitationResponseDTO createConnection = issuerHelper.outOfBandCreateInvitation();
-        return createConnection.getInvitation();
+        return createConnection;
     }
 
     public AcceptRequestResponseDTO acceptConnectionInvitationRequest(AcceptRequestDTO acceptRequestDTO)  {

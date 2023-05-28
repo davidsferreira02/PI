@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Doctor Page</h1>
+
+    <div id="pacientes-container">
+        <div class="paciente-card" onclick="openHistoricoPage()">
+            <h3>Patient 1</h3>
+            <p>Gender: Male</p>
+            <p>Age: 35</p>
+            <p>Disease: Hypertension</p>
+        </div>
+
+        <div class="paciente-card" onclick="openHistoricoPage()">
+            <h3>Patient 2</h3>
+            <p>Gender: Female</p>
+            <p>Age: 42</p>
+            <p>Disease: Diabetes</p>
+        </div>
+
+        <div class="paciente-card" onclick="openHistoricoPage()">
+            <h3>Patient 3</h3>
+            <p>Gender: Male</p>
+            <p>Age: 50</p>
+            <p>Disease: Asthma</p>
+        </div>
+    </div>
+
+    <h2>Create New Patient</h2>
+
+    <form id="patient-form">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+
+        <div class="form-group">
+            <label for="disease">Disease:</label>
+            <input type="text" id="disease" name="disease" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Patient</button>
+    </form>
+
+    <script>
+        const pacientesContainer = document.getElementById('pacientes-container');
+        const patientForm = document.getElementById('patient-form');
+
+        // Handle form submission to create new patient
+        patientForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form input values
+            const name = document.getElementById('name').value;
+            const gender = document.getElementById('gender').value;
+            const age = document.getElementById('age').value;
+            const disease = document.getElementById('disease').value;
+
+            // Create a new patient card
+            const newPatientCard = document.createElement('div');
+            newPatientCard.className = 'paciente-card';
+            newPatientCard.innerHTML = `
+                <h3>${name}</h3>
+                <p>Gender: ${gender}</p>
+                <p>Age: ${age}</p>
+                <p>Disease: ${disease}</p>
+            `;
+
+            // Append the new patient card to the pacientesContainer
+            pacientesContainer.appendChild(newPatientCard);
+
+            // Reset the form
+            patientForm.reset();
+        });
+
+        function openHistoricoPage() {
+            window.location.href = 'historico.html';
+        }
+    </script>
+</div>
+</body>
+</html>
