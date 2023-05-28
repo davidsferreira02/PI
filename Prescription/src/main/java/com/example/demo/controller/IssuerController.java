@@ -22,14 +22,10 @@ public class IssuerController {
     private final IssuerService issuerService;
 
     @PostMapping("/create-invitation")
-    public CreateInvitationResponseDTO createConnection(Model model) {
-        return issuerService.createConnection();
-    }
-
-    @GetMapping("/create-invitation")
     public CreateInvitationResponseDTO createConnection() {
         return issuerService.createConnection();
     }
+
 
     @PostMapping("/accept-request")
     public AcceptRequestResponseDTO acceptConnectionRequest(@RequestBody AcceptRequestDTO acceptRequestDTO) {
