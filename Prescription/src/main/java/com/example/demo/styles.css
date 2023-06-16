@@ -52,7 +52,7 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-/* Specific styles for login.html */
+/* Specific styles for login.ejs */
 .login-form {
     max-width: 400px;
     margin: 0 auto;
