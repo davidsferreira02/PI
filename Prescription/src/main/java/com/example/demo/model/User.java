@@ -79,12 +79,12 @@ public class User
     @Column(nullable=false)
     private String password;
 
-    @Column
+    @Column (nullable=false)
     private String gender;
 
     @Column
     private int age;
-@Column
+@Column (nullable=false)
     private String role;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)

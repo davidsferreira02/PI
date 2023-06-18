@@ -52,11 +52,11 @@ public class UserDTO
     private String email;
     @NotEmpty(message = "Password should not be empty")
     private String password;
-
+    @NotEmpty
     private String gender;
 
     private int age;
-
+    @NotEmpty
     private String role;
 
 
