@@ -37,6 +37,9 @@ public class UserServiceImpl implements UserService {
         user.setEmail(userDto.getEmail());
         // encrypt the password using spring security
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setRole(userDto.getRole());
+        user.setAge(userDto.getAge());
+        user.setGender(userDto.getGender());
 
         Role role = roleRepository.findByName("ROLE_ADMIN");
         if(role == null){
@@ -65,6 +68,9 @@ public class UserServiceImpl implements UserService {
         userDto.setFirstName(str[0]);
         userDto.setLastName(str[1]);
         userDto.setEmail(user.getEmail());
+        userDto.setGender(user.getGender());
+        userDto.setRole(user.getRole());
+        userDto.setAge(user.getAge());
         return userDto;
     }
 
