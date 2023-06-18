@@ -1,5 +1,5 @@
 package com.example.demo.service;
-/*
+
 import com.example.demo.aca.dto.PrescriptionDTO;
 import com.example.demo.aca.dto.UserDTO;
 import com.example.demo.model.Prescription;
@@ -13,4 +13,3 @@ public interface PrescriptionService {
     List<PrescriptionDTO> findAllPrescription(String name);
 
 }
-*/

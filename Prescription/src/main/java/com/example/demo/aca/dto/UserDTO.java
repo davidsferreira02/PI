@@ -52,4 +52,12 @@ public class UserDTO
     private String email;
     @NotEmpty(message = "Password should not be empty")
     private String password;
+
+    private String gender;
+
+    private int age;
+
+    private String role;
+
+
 }

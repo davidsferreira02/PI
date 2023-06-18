@@ -13,72 +13,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+
 @Service
-
-/*public class UserServiceImpl implements UserService {
-
-    private UserRepository userRepository;
-    private RoleRepository roleRepository;
-    private PasswordEncoder passwordEncoder;
-
-    public UserServiceImpl(UserRepository userRepository,
-                           RoleRepository roleRepository,
-                           PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
-
-    @Override
-    public void saveUser(UserDTO userDTO) {
-        User user = new User();
-        user.setName(userDTO.getFirstName() + " " + userDTO.getLastName());
-        user.setEmail(userDTO.getEmail());
-        // encrypt the password using spring security
-        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-        user.setGender(userDTO.getGender());
-        user.setAge(userDTO.getAge());
-        user.setRole(userDTO.getRole());
-        Role role=new Role();
-        if(user.getRole().equals("Doctor")){
-             role.setName("ROLE_DOCTOR");
-        }
-        else{
-            role.setName("ROLE_PACIENT");
-        }
-        user.setRoles(Arrays.asList(role));
-        roleRepository.save(role);
-        userRepository.save(user);
-    }
-
-    @Override
-    public User findUserByEmail(String email) {
-        return userRepository.findByEmail(email);
-    }
-
-    @Override
-    public List<UserDTO> findAllUsers() {
-        List<User> users = userRepository.findAll();
-        return users.stream()
-                .map((user) -> mapToUserDTO(user))
-                .collect(Collectors.toList());
-    }
-
-    private UserDTO mapToUserDTO(User user){
-        UserDTO userDTO = new UserDTO();
-        String[] str = user.getName().split(" ");
-        userDTO.setFirstName(str[0]);
-        userDTO.setLastName(str[1]);
-        userDTO.setEmail(user.getEmail());
-        userDTO.setAge(user.getAge());
-        userDTO.setRole(user.getRole());
-        userDTO.setGender(user.getGender());
-        return userDTO;
-    }
-
-
-}*/
-
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
@@ -137,6 +74,3 @@ public class UserServiceImpl implements UserService {
         return roleRepository.save(role);
     }
 }
-
-
-

@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-/*
+
 import com.example.demo.aca.dto.PrescriptionDTO;
 import com.example.demo.aca.dto.UserDTO;
 import com.example.demo.model.Prescription;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/*@Service
+@Service
 public class PrescriptionServiceImpl implements PrescriptionService {
 
 
@@ -74,4 +74,4 @@ public class PrescriptionServiceImpl implements PrescriptionService {
     }
 
 
-}*/
+}

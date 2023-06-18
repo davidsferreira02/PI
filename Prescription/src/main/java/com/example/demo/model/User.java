@@ -79,6 +79,14 @@ public class User
     @Column(nullable=false)
     private String password;
 
+    @Column
+    private String gender;
+
+    @Column
+    private int age;
+@Column
+    private String role;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
             name="users_roles",
