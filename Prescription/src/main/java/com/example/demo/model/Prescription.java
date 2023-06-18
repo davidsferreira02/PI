@@ -1,54 +1,41 @@
 package com.example.demo.model;
 
+
+
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
-
+/*
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "prescriptions")
 public class Prescription {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String title;
 
 
+    private String doctorName;
 
+   private String pacientName;
+
+    @Column(nullable = false)
     private String medication;
 
+    @Column(nullable = false)
+    private Date submissionDate;
 
-    private String doctor;
-
-
-    public String getMedication() {
-        return medication;
-    }
-
-    public void setMedication(String medication) {
-        this.medication = medication;
-    }
-
-    public String getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(String doctor) {
-        this.doctor = doctor;
-    }
-
-    public String getPacient() {
-        return pacient;
-    }
-
-    public void setPacient(String pacient) {
-        this.pacient = pacient;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    private String pacient;
-
-
-    private Date date;
+    // Constructors, getters, setters, and other methods
 }
+*/

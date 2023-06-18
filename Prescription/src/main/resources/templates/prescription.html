@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Receitas Médicas</title>
+</head>
+<body>
+<h1>Lista de Receitas Médicas</h1>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Doctor</th>
+        <th>Medication</th>
+
+    </tr>
+
+
+    //Como tenho acesso ao id do user autenticado
+    <tr th:each="prescription : ${prescription}" th:if="${prescription.doctorName == #authentication.principal.name}">
+        <td th:text="${prescription.title}"></td>
+        <td th:text="${prescription.submissionDate}"></td>
+        <td th:text="${prescription.submittedBy}"></td>
+        <td th:text="${prescription.medication}"></td>
+    </tr>
+
+</table>
+</body>
+</html>

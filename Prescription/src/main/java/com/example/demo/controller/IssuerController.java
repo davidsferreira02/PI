@@ -48,20 +48,6 @@ public class IssuerController {
     }
 
 
-    @GetMapping("/login")
-    public ModelAndView login(@RequestParam("username") String username) {
-        // Verificar o valor do campo "username"
-        if (username.equals("doctor")) {
-            // Redirecionar para a página do médico
-            return new ModelAndView("redirect:/doctor");
-        } else if (username.equals("patient")) {
-            // Redirecionar para a página do paciente
-            return new ModelAndView("redirect:/patient");
-        } else {
-            // Redirecionar para uma página de erro ou exibir uma mensagem de erro
-            return new ModelAndView("redirect:/error");
-        }
-    }
 
 
 }

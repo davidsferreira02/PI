@@ -22,6 +22,7 @@ public class AriesClient {
 
     private static final String SCHEMAS = "/schemas";
 
+
     private static String CONNECTIONS = "/connections";
 
 
@@ -77,8 +78,8 @@ public class AriesClient {
     }
 
     public AcceptRequestResponseDTO acceptRequest(AcceptRequestDTO acceptRequestDTO) {
-        String connectionId=getConnectionByMessageId(acceptRequestDTO.getInvitation_msg_id());
-        String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(DIDEXCHANGE_ACCEPT_REQUEST.replace("<CONNECTION_ID>",connectionId)).build().toUriString();
+        String connectionId = getConnectionByMessageId(acceptRequestDTO.getInvitation_msg_id());
+        String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(DIDEXCHANGE_ACCEPT_REQUEST.replace("<CONNECTION_ID>", connectionId)).build().toUriString();
         return restTemplate.postForObject(url, null, AcceptRequestResponseDTO.class);
 
     }
@@ -102,11 +103,6 @@ public class AriesClient {
         String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(ISSUE_CREDENTIAL_SEND_PROPOSAL).build().toUriString();
         return restTemplate.postForObject(url, sendProposalDTO, SendProposalResponseDTO.class);
     }
-
-
-
-
-
 
 
 }

@@ -1,34 +1,16 @@
 package com.example.demo.service;
-
+/*
+import com.example.demo.aca.dto.PrescriptionDTO;
+import com.example.demo.aca.dto.UserDTO;
 import com.example.demo.model.Prescription;
-import com.example.demo.repository.PrescriptionRepository;
-import com.example.demo.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.example.demo.model.User;
 
-import java.util.Date;
+import java.util.List;
+public interface PrescriptionService {
+    void savePrescription(PrescriptionDTO prescriptionDTO);
 
-@Service
-public class PrescriptionService {
-
-
-    private final PrescriptionRepository prescriptionRepository;
-
-    @Autowired
-    public PrescriptionService(PrescriptionRepository prescriptionRepository) {
-        this.prescriptionRepository = prescriptionRepository;
-    }
-
-    public void CreatePrescription(String medication, String doctor, String pacient, Date date){
-        Prescription prescription=new Prescription();
-        prescription.setDate(date);
-        prescription.setDoctor(doctor);
-        prescription.setPacient(pacient);
-        prescription.setDoctor(doctor);
-        prescription.setMedication(medication);
-        prescriptionRepository.save(prescription);
-
-    }
-
+    Prescription findByPacientName(String name);
+    List<PrescriptionDTO> findAllPrescription(String name);
 
 }
+*/
