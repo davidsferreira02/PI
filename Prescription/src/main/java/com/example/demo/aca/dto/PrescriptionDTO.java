@@ -18,7 +18,7 @@ public class PrescriptionDTO {
     @NotEmpty
     private String title;
 
-    @NotEmpty
+
     private String doctorName;
 
     @NotEmpty

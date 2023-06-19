@@ -7,9 +7,11 @@ import com.example.demo.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.time.Period;
 
 
 
@@ -33,7 +35,9 @@ public class UserServiceImpl implements UserService {
         // encrypt the password using spring security
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setRole(userDto.getRole());
-        user.setAge(userDto.getAge());
+        user.setDateOfBirth(userDto.getDateOfBirth());
+        user.setAge(age(userDto.getDateOfBirth()));
+
         user.setGender(userDto.getGender());
         userRepository.save(user);
     }
@@ -51,7 +55,7 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList());
     }
 
-    private UserDTO mapToUserDto(User user){
+    private UserDTO mapToUserDto(User user) {
         UserDTO userDto = new UserDTO();
         String[] str = user.getName().split(" ");
         userDto.setFirstName(str[0]);
@@ -59,7 +63,18 @@ public class UserServiceImpl implements UserService {
         userDto.setEmail(user.getEmail());
         userDto.setGender(user.getGender());
         userDto.setRole(user.getRole());
-        userDto.setAge(user.getAge());
+        userDto.setDateOfBirth(user.getDateOfBirth());
+        userDto.setAge(age(user.getDateOfBirth()));
         return userDto;
     }
+
+    private int age(LocalDate date) {
+        LocalDate today = LocalDate.now();
+        Period period = Period.between(date, today);
+        return period.getYears();
+    }
 }
+
+
+
+

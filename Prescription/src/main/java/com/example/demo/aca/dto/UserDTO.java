@@ -32,10 +32,15 @@ public class UserDTO
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -55,7 +60,11 @@ public class UserDTO
     @NotEmpty
     private String gender;
 
-    private int age;
+
+    public int age;
+    @NotNull()
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateOfBirth;
     @NotEmpty
     private String role;
 

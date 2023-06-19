@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prescripiton's list</title>
+    <title>Prescription's list</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         .prescription {
             border: 1px solid #ccc;
@@ -12,20 +14,24 @@
     </style>
 </head>
 <body>
-<h1>Prescripiton's lists</h1>
+<h1>Prescription's lists</h1>
 
-<div>
-    <!-- Loop para exibir cada receita médica -->
-    <div th:each="prescriptions : ${prescription}">
-        <div class="prescription">
-            <h2>Prescription</h2>
-            <p>Title: <span th:text="${prescriptions.title}"></span></p>
-            <p>Médico: <span th:text="${prescriptions.doctorName}"></span></p>
-            <p>Medicação: <span th:text="${prescriptions.medication}"></span></p>
-
+<div class="container">
+    <!-- Loop to display each prescription -->
+    <div th:each="prescription : ${prescriptions}">
+        <div class="prescription card">
+            <div class="card-body">
+                <h2 class="card-title">Prescription</h2>
+                <p class="card-text">Title: <span th:text="${prescription.title}"></span></p>
+                <p class="card-text">Doctor: <span th:text="${prescription.doctorName}"></span></p>
+                <p class="card-text">Medication: <span th:text="${prescription.medication}"></span></p>
+            </div>
         </div>
     </div>
 </div>
 
+<!-- Add Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

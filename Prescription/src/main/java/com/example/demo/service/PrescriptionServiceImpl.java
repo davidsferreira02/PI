@@ -6,6 +6,9 @@ import com.example.demo.aca.dto.UserDTO;
 import com.example.demo.model.Prescription;
 import com.example.demo.model.User;
 import com.example.demo.repository.PrescriptionRepository;
+import com.example.demo.repository.UserRepository;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,10 +18,12 @@ import java.util.stream.Collectors;
 public class PrescriptionServiceImpl implements PrescriptionService {
 
 
-    private  PrescriptionRepository prescriptionRepository;
+    private PrescriptionRepository prescriptionRepository;
+    private UserService userService;
 
-    public PrescriptionServiceImpl(PrescriptionRepository prescriptionRepository){
-        this.prescriptionRepository=prescriptionRepository;
+    public PrescriptionServiceImpl(PrescriptionRepository prescriptionRepository, UserService userService) {
+        this.prescriptionRepository = prescriptionRepository;
+        this.userService = userService;
 
     }
 
@@ -27,27 +32,23 @@ public class PrescriptionServiceImpl implements PrescriptionService {
         Prescription prescription = new Prescription();
         prescription.setMedication(prescriptionDTO.getMedication());
         prescription.setTitle(prescriptionDTO.getTitle());
-        prescription.setDoctorName(prescriptionDTO.getDoctorName());
         prescription.setPacientName(prescriptionDTO.getPatientName());
-       // prescription.setSubmissionDate(prescriptionDTO.getSubmissionDate());
-
+        prescription.setDoctorName(prescriptionDTO.getDoctorName());
 
 
         prescriptionRepository.save(prescription);
     }
 
 
-
     @Override
     public List<PrescriptionDTO> findAllPrescriptionByPacientName(String PacientName) {
         List<Prescription> prescriptions = prescriptionRepository.findAll();
-        int i=0;
-        for(Prescription prescriptionDTO:prescriptions){
+        int i = 0;
+        for (Prescription prescriptionDTO : prescriptions) {
 
-            if(prescriptionDTO.getPacientName().equals(PacientName)){
+            if (prescriptionDTO.getPacientName().equals(PacientName)) {
 
-            }
-            else{
+            } else {
                 prescriptions.remove(i);
             }
             i++;
@@ -58,10 +59,9 @@ public class PrescriptionServiceImpl implements PrescriptionService {
     }
 
 
-
-
-    private PrescriptionDTO mapToPrescriptionDTO(Prescription prescription){
+    private PrescriptionDTO mapToPrescriptionDTO(Prescription prescription) {
         PrescriptionDTO prescriptionDTO = new PrescriptionDTO();
+
         prescriptionDTO.setDoctorName(prescription.getDoctorName());
         prescriptionDTO.setTitle(prescription.getTitle());
         prescriptionDTO.setMedication(prescription.getMedication());

@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -33,9 +33,13 @@ public class User {
     @Column(nullable = false)
     private String gender;
 
-    @Column
+    @Column(nullable = false)
+    private LocalDate dateOfBirth;
+
+    @Column()
     private int age;
+
+
     @Column(nullable = false)
     private String role;
-
 }

@@ -83,10 +83,11 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label class="form-label">Age</label>
-                        <input class="form-control" id="age" name="age" placeholder="Enter age" th:field="*{age}" type="number" />
-                        <p th:errors="*{age}" class="text-danger" th:if="${#fields.hasErrors('age')}"></p>
+                        <label class="form-label">Date of Birth</label>
+                        <input class="form-control" id="dateOfBirth" name="dateOfBirth" placeholder="Enter date of birth (YYYY-MM-DD)" th:field="*{dateOfBirth}" type="date" />
+                        <p th:errors="*{dateOfBirth}" class="text-danger" th:if="${#fields.hasErrors('dateOfBirth')}"></p>
                     </div>
+
                     <div class="form-group">
                         <button class="btn btn-primary" type="submit">Register</button>
                         <span>Already registered? <a th:href="@{/login}">Login here</a></span>
