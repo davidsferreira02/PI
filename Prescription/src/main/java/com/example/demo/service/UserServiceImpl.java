@@ -2,9 +2,7 @@ package com.example.demo.service;
 
 
 import com.example.demo.aca.dto.UserDTO;
-import com.example.demo.model.Role;
 import com.example.demo.model.User;
-import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,14 +17,11 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
-    private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
 
     public UserServiceImpl(UserRepository userRepository,
-                           RoleRepository roleRepository,
                            PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -40,12 +35,6 @@ public class UserServiceImpl implements UserService {
         user.setRole(userDto.getRole());
         user.setAge(userDto.getAge());
         user.setGender(userDto.getGender());
-
-        Role role = roleRepository.findByName("ROLE_ADMIN");
-        if(role == null){
-            role = checkRoleExist();
-        }
-        user.setRoles(Arrays.asList(role));
         userRepository.save(user);
     }
 
@@ -72,11 +61,5 @@ public class UserServiceImpl implements UserService {
         userDto.setRole(user.getRole());
         userDto.setAge(user.getAge());
         return userDto;
-    }
-
-    private Role checkRoleExist(){
-        Role role = new Role();
-        role.setName("ROLE_ADMIN");
-        return roleRepository.save(role);
     }
 }

@@ -27,8 +27,7 @@ public class PrescriptionDTO {
     @NotEmpty
     private String medication;
 
-    @NotEmpty
-    private Date submissionDate;
+
 
     // Getters and setters
 }

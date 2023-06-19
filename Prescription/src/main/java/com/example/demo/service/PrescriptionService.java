@@ -9,7 +9,6 @@ import java.util.List;
 public interface PrescriptionService {
     void savePrescription(PrescriptionDTO prescriptionDTO);
 
-    Prescription findByPacientName(String name);
-    List<PrescriptionDTO> findAllPrescription(String name);
+    List<PrescriptionDTO> findAllPrescriptionByPacientName(String PacientName);
 
 }

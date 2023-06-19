@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Role;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,10 +10,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.stream.Collectors;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-
+    private final static String ROLE_PREFIX = "ROLE_";
     private UserRepository userRepository;
 
     public CustomUserDetailsService(UserRepository userRepository) {
@@ -28,16 +28,13 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (user != null) {
             return new org.springframework.security.core.userdetails.User(user.getEmail(),
                     user.getPassword(),
-                    mapRolesToAuthorities(user.getRoles()));
+                    mapRolesToAuthorities(user.getRole()));
         }else{
             throw new UsernameNotFoundException("Invalid username or password.");
         }
     }
 
-    private Collection < ? extends GrantedAuthority> mapRolesToAuthorities(Collection <Role> roles) {
-        Collection < ? extends GrantedAuthority> mapRoles = roles.stream()
-                .map(role -> new SimpleGrantedAuthority(role.getName()))
-                .collect(Collectors.toList());
-        return mapRoles;
+    private Collection < ? extends GrantedAuthority> mapRolesToAuthorities(String role) {
+        return Collections.singletonList(new SimpleGrantedAuthority(ROLE_PREFIX + role.toUpperCase()));
     }
 }

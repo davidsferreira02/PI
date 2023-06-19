@@ -77,7 +77,7 @@
                         <label class="form-label">Role</label>
                         <select class="form-control" id="role" name="role" th:field="*{role}">
                             <option value="doctor">Doctor</option>
-                            <option value="pacient">Pacient</option>
+                            <option value="patient">Patient</option>
                         </select>
                         <p th:errors="*{role}" class="text-danger" th:if="${#fields.hasErrors('role')}"></p>
                     </div>

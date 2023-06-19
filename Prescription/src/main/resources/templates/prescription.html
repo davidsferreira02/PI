@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Receitas Médicas</title>
+    <title>Prescripiton's list</title>
     <style>
         .prescription {
             border: 1px solid #ccc;
@@ -12,15 +12,14 @@
     </style>
 </head>
 <body>
-<h1>Lista de Receitas Médicas</h1>
+<h1>Prescripiton's lists</h1>
 
 <div>
     <!-- Loop para exibir cada receita médica -->
     <div th:each="prescriptions : ${prescription}">
         <div class="prescription">
-            <h2>Receita Médica</h2>
+            <h2>Prescription</h2>
             <p>Title: <span th:text="${prescriptions.title}"></span></p>
-            <p>Data: <span th:text="${prescriptions.submissondate}"></span></p>
             <p>Médico: <span th:text="${prescriptions.doctorName}"></span></p>
             <p>Medicação: <span th:text="${prescriptions.medication}"></span></p>
 

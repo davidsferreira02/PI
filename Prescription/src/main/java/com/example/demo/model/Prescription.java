@@ -33,8 +33,5 @@ public class Prescription {
     @Column(nullable = false)
     private String medication;
 
-    @Column(nullable = false)
-    private Date submissionDate;
-
     // Constructors, getters, setters, and other methods
 }

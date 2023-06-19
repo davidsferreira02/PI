@@ -29,25 +29,22 @@ public class PrescriptionServiceImpl implements PrescriptionService {
         prescription.setTitle(prescriptionDTO.getTitle());
         prescription.setDoctorName(prescriptionDTO.getDoctorName());
         prescription.setPacientName(prescriptionDTO.getPatientName());
-        prescription.setSubmissionDate(prescriptionDTO.getSubmissionDate());
+       // prescription.setSubmissionDate(prescriptionDTO.getSubmissionDate());
 
 
 
         prescriptionRepository.save(prescription);
     }
 
-    @Override
-    public Prescription findByPacientName(String name) {
-        return prescriptionRepository.findByPacientName(name);
-    }
+
 
     @Override
-    public List<PrescriptionDTO> findAllPrescription(String name) {
+    public List<PrescriptionDTO> findAllPrescriptionByPacientName(String PacientName) {
         List<Prescription> prescriptions = prescriptionRepository.findAll();
         int i=0;
         for(Prescription prescriptionDTO:prescriptions){
 
-            if(prescriptionDTO.getPacientName().equals(name)){
+            if(prescriptionDTO.getPacientName().equals(PacientName)){
 
             }
             else{
@@ -56,14 +53,14 @@ public class PrescriptionServiceImpl implements PrescriptionService {
             i++;
         }
         return prescriptions.stream()
-                .map((user) -> mapToUserDTO(user))
+                .map((prescription) -> mapToPrescriptionDTO(prescription))
                 .collect(Collectors.toList());
     }
 
 
 
 
-    private PrescriptionDTO mapToUserDTO(Prescription prescription){
+    private PrescriptionDTO mapToPrescriptionDTO(Prescription prescription){
         PrescriptionDTO prescriptionDTO = new PrescriptionDTO();
         prescriptionDTO.setDoctorName(prescription.getDoctorName());
         prescriptionDTO.setTitle(prescription.getTitle());
