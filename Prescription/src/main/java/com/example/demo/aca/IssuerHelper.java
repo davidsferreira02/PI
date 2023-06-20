@@ -3,6 +3,7 @@ package com.example.demo.aca;
 import com.example.demo.aca.dto.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.UriComponentsBuilder;
 
 
 @Service
@@ -33,6 +34,13 @@ public class IssuerHelper {
     public CredentialDefinitionResponseDTO credentialDefinition(CredentialDefinitionDTO credentialDefinitionDTO) {
         return issuerClient.credentialDefinitions(credentialDefinitionDTO);
     }
+
+    public SendOfferResponseDTO sendOffer (SendOfferDTO sendOfferDTO){
+        return issuerClient.sendOffer(sendOfferDTO);
+    }
+
+
+
 
 
 

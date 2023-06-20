@@ -1,13 +1,13 @@
 package com.example.demo.model;
 
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -28,10 +28,20 @@ public class Prescription {
 
     private String doctorName;
 
-   private String pacientName;
+    private String pacientName;
 
     @Column(nullable = false)
     private String medication;
 
-    // Constructors, getters, setters, and other methods
+    @Column(nullable = false)
+    private String dosage;
+
+    @Column()
+
+    private LocalDate expiredAt;
+
+    @Column()
+    private LocalDate createdAt;
+
+
 }

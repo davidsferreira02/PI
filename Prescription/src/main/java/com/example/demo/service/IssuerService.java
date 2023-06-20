@@ -3,10 +3,17 @@ package com.example.demo.service;
 
 import com.example.demo.aca.IssuerHelper;
 import com.example.demo.aca.dto.*;
+import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @org.springframework.stereotype.Service
@@ -15,6 +22,9 @@ public class IssuerService {
 
     @NonNull
     private final IssuerHelper issuerHelper;
+
+
+
 
 
     public CreateInvitationResponseDTO createConnection() {
@@ -35,6 +45,15 @@ public class IssuerService {
     public CredentialDefinitionResponseDTO credentialDefinition(CredentialDefinitionDTO credentialDefinitionDTO){
         return issuerHelper.credentialDefinition(credentialDefinitionDTO);
     }
+    public SendOfferResponseDTO sendOffer(SendOfferDTO sendOfferDTO){
+        return issuerHelper.sendOffer(sendOfferDTO);
+    }
+
+
+
+
+
+
 
 
 }

@@ -20,17 +20,17 @@ import java.util.List;
 
 @Controller
 @RequestMapping("prescription")
-public class PrescriptionController {
+public class PatientController {
     PrescriptionService prescriptionService;
     UserService userService;
 
-    public PrescriptionController(PrescriptionService prescriptionService,UserService userService){
+    public PatientController(PrescriptionService prescriptionService, UserService userService){
         this.prescriptionService=prescriptionService;
         this.userService=userService;
 
     }
 
-    @GetMapping("/create")
+/*    @GetMapping("/create")
     public String showPrescriptionForm(Model model){
         // create model object to store form data
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -42,7 +42,7 @@ public class PrescriptionController {
             return "createPrescription";
         }
         return null;
-    }
+    }*/
 
     // handler method to handle user registration form submit request
     @PostMapping("/save")
@@ -57,18 +57,21 @@ public class PrescriptionController {
         return "redirect:/users";
     }
 
-    @GetMapping("")
+   /* @GetMapping("")
     public String getPrescription(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userService.findUserByEmail(currentPrincipalName);
         if (user.getRole().equals("patient")) {
             List<PrescriptionDTO> prescription = prescriptionService.findAllPrescriptionByPacientName(user.getName());
-            model.addAttribute("prescription", prescription);
-            return "prescription";
+            if(!prescription.isEmpty()) {
+                model.addAttribute("prescription", prescription);
+                return "prescription";
+            }
+
         }
         return null;
-    }
+    }*/
 
 
 }

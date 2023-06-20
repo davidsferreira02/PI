@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prescription's list</title>
-    <!-- Add Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Prescripiton's list</title>
     <style>
         .prescription {
             border: 1px solid #ccc;
@@ -12,26 +10,52 @@
             margin-bottom: 10px;
         }
     </style>
+
+
+        <meta charset="UTF-8">
+        <title>Registration and Login System</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+              crossorigin="anonymous">
+
 </head>
 <body>
-<h1>Prescription's lists</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Registration and Login System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-<div class="container">
-    <!-- Loop to display each prescription -->
-    <div th:each="prescription : ${prescriptions}">
-        <div class="prescription card">
-            <div class="card-body">
-                <h2 class="card-title">Prescription</h2>
-                <p class="card-text">Title: <span th:text="${prescription.title}"></span></p>
-                <p class="card-text">Doctor: <span th:text="${prescription.doctorName}"></span></p>
-                <p class="card-text">Medication: <span th:text="${prescription.medication}"></span></p>
-            </div>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
+                </li>
+            </ul>
         </div>
     </div>
-</div>
+</nav>
+<h1>Prescripiton's lists</h1>
 
-<!-- Add Bootstrap JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-</html>
+<div>
+    <!-- Loop para exibir cada receita médica -->
+    <div th:each="prescriptions : ${prescription}">
+        <div class="prescription">
+            <h2>Prescription</h2>
+            <p>Title: <span th:text="${prescriptions.title}"></span></p>
+            <p>Médico: <span th:text="${prescriptions.doctorName}"></span></p>
+            <p>Medicação: <span th:text="${prescriptions.medication}"></span></p>
+            <p>Dosage: <span th:text="${prescriptions.dosage}"></span></p>
+            <p>Create: <span th:text="${prescriptions.createdAt}"></span></p>
+            <p>Validation: <span th:text="${prescriptions.expiredAt}"></span></p>
+
+
+
+
+        </div>
+    </div>
+
+</div>

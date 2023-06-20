@@ -51,6 +51,17 @@
             <p th:errors="*{patientName}" class="text-danger" th:if="${#fields.hasErrors('patientName')}"></p>
           </div>
 
+          <div class="form-group mb-3">
+            <label class="form-label">Doctor Name</label>
+            <input class="form-control"
+                   id="doctorName"
+                   name="doctorName"
+                   placeholder="Enter doctor name"
+                   type="text"
+            />
+            <p th:errors="*{doctorName}" class="text-danger" th:if="${#fields.hasErrors('doctorName')}"></p>
+          </div>
+
 
 
 
@@ -63,6 +74,17 @@
                       th:field="*{medication}"
                       rows="4"></textarea>
             <p th:errors="*{medication}" class="text-danger" th:if="${#fields.hasErrors('medication')}"></p>
+          </div>
+
+          <div class="form-group mb-3">
+            <label class="form-label">Dosage</label>
+            <input class="form-control"
+                   id="dosage"
+                   name="dosage"
+                   placeholder="Enter dosage"
+                   type="text"
+            />
+            <p th:errors="*{dosage}" class="text-danger" th:if="${#fields.hasErrors('dosage')}"></p>
           </div>
 
 

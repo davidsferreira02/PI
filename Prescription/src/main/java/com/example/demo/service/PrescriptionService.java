@@ -11,4 +11,8 @@ public interface PrescriptionService {
 
     List<PrescriptionDTO> findAllPrescriptionByPacientName(String PacientName);
 
+
+
+
+
 }

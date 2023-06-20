@@ -26,11 +26,11 @@ public class AuthController {
 
     private UserService userService;
 
-    private PrescriptionService prescriptionService;
 
-    public AuthController(UserService userService, PrescriptionService prescriptionService) {
+
+    public AuthController(UserService userService ) {
         this.userService = userService;
-        this.prescriptionService=prescriptionService;
+
     }
 
     // handler method to handle home page request
@@ -88,7 +88,7 @@ public class AuthController {
         }
 
 
-       return "redirect:/prescription";
+       return "redirect:/holder/prescription";
 
     }
 

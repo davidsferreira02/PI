@@ -5,6 +5,7 @@ import com.example.demo.aca.dto.*;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 public class HolderHelper {
@@ -35,23 +36,10 @@ public class HolderHelper {
         return holderClient.sendProposal(sendProposalDTO);
     }
 
-/*
-    public Optional<ConnectionRecord> didExchangeAcceptInvitation(String connectionId, DidExchangeAcceptInvitationFilter filter) throws IOException {
-        return holderClient.didExchangeAcceptInvitation(connectionId, filter);
+    public SendRequestResponseDTO sendRequest(SendRequestDTO sendRequestDTO){
+        return holderClient.sendRequest((sendRequestDTO));
     }
 
-    public Optional<V20CredExRecord> v20sendProposal(V2CredentialExchangeFree request) throws IOException {
-        return holderClient.issueCredentialV2SendProposal(request);
-    }
 
-    public Optional<V20CredExRecord> v20sendRequest(String credentialExchangeId, V20CredRequestRequest request) throws IOException {
-        return holderClient.issueCredentialV2RecordsSendRequest(credentialExchangeId, request);
 
-    }
-
-    public Optional<V20CredExRecordDetail> v20Store(String credentialExchangeId, V20CredStoreRequest request) throws IOException {
-        return holderClient.issueCredentialV2RecordsStore(credentialExchangeId, request);
-    }
-
-*/
 }

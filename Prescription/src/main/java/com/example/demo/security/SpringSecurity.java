@@ -35,9 +35,9 @@ public class SpringSecurity {
                         authorize.requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/index").permitAll()
                                 .requestMatchers("/users").hasRole("DOCTOR")
-                                .requestMatchers("/prescription").hasRole("PATIENT")
-                                .requestMatchers("/prescription/create").hasRole("DOCTOR")
-                                .requestMatchers("/prescription/save").hasRole("DOCTOR")
+                                .requestMatchers("/holder/**").hasRole("PATIENT")
+                                .requestMatchers("/issuer/**").hasRole("DOCTOR")
+                                .requestMatchers("/prescription/**").hasRole("DOCTOR")
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")
@@ -61,7 +61,7 @@ public class SpringSecurity {
                 .orElse("");
 
         if (role.equals("ROLE_PATIENT")) {
-            return "/prescription";
+            return "/holder/prescription";
         }
 
         // Add additional role-based target URLs if needed
