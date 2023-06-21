@@ -50,6 +50,11 @@ public class IssuerService {
     }
 
 
+    public IssueCredentialsResponseDTO issueCredentials(IssueCredentialsDTO issueCredentialsDTO){
+        return issuerHelper.issueCredentials(issueCredentialsDTO);
+    }
+
+
 
 
 

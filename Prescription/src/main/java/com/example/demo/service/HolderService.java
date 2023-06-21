@@ -43,6 +43,13 @@ public class HolderService {
         return holderHelper.sendRequest(sendRequestDTO);
     }
 
+    public GetCredentialsResponseDTO getCredentials(){
+        return holderHelper.getCredentials();
+    }
+    public StoreCredentialsResponseDTO storeCredentials(StoreCredentialsDTO storeCredentialsDTO){
+        return holderHelper.storeCredentials(storeCredentialsDTO);
+    }
+
 
 
 }

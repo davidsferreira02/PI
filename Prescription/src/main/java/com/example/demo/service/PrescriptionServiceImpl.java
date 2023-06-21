@@ -36,19 +36,16 @@ public class PrescriptionServiceImpl implements PrescriptionService {
         Prescription prescription = new Prescription();
         prescription.setMedication(prescriptionDTO.getMedication());
         prescription.setTitle(prescriptionDTO.getTitle());
-        prescription.setPacientName(prescriptionDTO.getPatientName());
+        prescription.setPatientName(prescriptionDTO.getPatientName());
         prescription.setDoctorName(prescriptionDTO.getDoctorName());
         prescription.setDosage(prescriptionDTO.getDosage());
-        prescription.setCreatedAt(LocalDate.now().plusDays(30));
+        prescription.setExpiredAt(LocalDate.now().plusDays(30));
 
         prescription.setCreatedAt(LocalDate.now());
 
 
         prescriptionRepository.save(prescription);
     }
-
-
-
 
 
 
@@ -63,7 +60,7 @@ public class PrescriptionServiceImpl implements PrescriptionService {
         int i = 0;
         for (Prescription prescriptionDTO : prescriptions) {
 
-            if (prescriptionDTO.getPacientName().equals(PacientName)) {
+            if (prescriptionDTO.getPatientName().equals(PacientName)) {
 
             } else {
                 prescriptions.remove(i);
@@ -76,13 +73,16 @@ public class PrescriptionServiceImpl implements PrescriptionService {
     }
 
 
+
+
+
     private PrescriptionDTO mapToPrescriptionDTO(Prescription prescription) {
         PrescriptionDTO prescriptionDTO = new PrescriptionDTO();
 
         prescriptionDTO.setDoctorName(prescription.getDoctorName());
         prescriptionDTO.setTitle(prescription.getTitle());
         prescriptionDTO.setMedication(prescription.getMedication());
-        prescriptionDTO.setPatientName(prescription.getPacientName());
+        prescriptionDTO.setPatientName(prescription.getPatientName());
         prescriptionDTO.setDosage(prescription.getDosage());
         prescriptionDTO.setCreatedAt(LocalDate.now());
         prescriptionDTO.setExpiredAt(LocalDate.now().plusDays(30));

@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.aca.dto.PrescriptionDTO;
 
+import com.example.demo.aca.dto.UserDTO;
 import com.example.demo.model.User;
 import com.example.demo.service.PrescriptionService;
 import com.example.demo.service.UserService;
@@ -46,11 +47,31 @@ public class PatientController {
 
     // handler method to handle user registration form submit request
     @PostMapping("/save")
-    public String Prescription(@Valid @ModelAttribute("prescription") PrescriptionDTO prescriptionDTO,
+    public String Prescription(@Valid @ModelAttribute("prescription") PrescriptionDTO prescriptionDTO, UserDTO userDto,
                                BindingResult result,
                                Model model){
 
+        User existingUser = userService.findUserByEmail(userDto.getEmail());
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        User user = userService.findUserByEmail(currentPrincipalName);
 
+
+
+        if (user != null && !user.getName().equals(prescriptionDTO.getDoctorName())) {
+            result.rejectValue("doctorName", null,
+                    "You aren´t this doctor");
+        }
+
+        if (existingUser != null && !existingUser.getName().equals(prescriptionDTO.getPatientName())) {
+            result.rejectValue("patientName", null,
+                    "Doesn't exist this patient");
+        }
+
+        if (result.hasErrors()) {
+            model.addAttribute("prescription", prescriptionDTO);
+            return "createPrescription";
+        }
 
 
         prescriptionService.savePrescription(prescriptionDTO);

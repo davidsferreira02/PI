@@ -28,7 +28,7 @@ public class Prescription {
 
     private String doctorName;
 
-    private String pacientName;
+    private String patientName;
 
     @Column(nullable = false)
     private String medication;

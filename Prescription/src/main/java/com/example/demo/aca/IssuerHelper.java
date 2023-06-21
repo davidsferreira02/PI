@@ -8,7 +8,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 public class IssuerHelper {
-//doctor
+
 
     private AriesClient issuerClient;
 
@@ -37,6 +37,10 @@ public class IssuerHelper {
 
     public SendOfferResponseDTO sendOffer (SendOfferDTO sendOfferDTO){
         return issuerClient.sendOffer(sendOfferDTO);
+    }
+
+    public IssueCredentialsResponseDTO issueCredentials (IssueCredentialsDTO issueCredentialsDTO){
+        return issuerClient.issueCredentials(issueCredentialsDTO);
     }
 
 

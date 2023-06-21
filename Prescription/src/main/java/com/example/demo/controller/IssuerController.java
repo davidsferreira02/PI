@@ -61,6 +61,11 @@ public class IssuerController {
         return issuerService.sendOffer(sendOfferDTO);
     }
 
+    @PostMapping("issue-credentials")
+    public IssueCredentialsResponseDTO issueCredentials(@RequestBody() IssueCredentialsDTO issueCredentialsDTO){
+        return issuerService.issueCredentials(issueCredentialsDTO);
+    }
+
     @GetMapping("/prescription/create")
     public String showPrescriptionForm(Model model){
         // create model object to store form data

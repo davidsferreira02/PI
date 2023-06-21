@@ -38,7 +38,8 @@ public class AriesClient {
 
     private static final String ISSUE_CREDENTIAL_RECORDS_STORE = "issue-credential-2.0/records/<CONNECTION_ID>/store";
 
-    private static final String GET_CREDENTIAL_DEFINITIONS = "/credentials/get_credential__credential_id_";
+    private static final String GET_CREDENTIAL_DEFINITIONS = "/credentials/get_credentials";
+
 
     public AriesClient(String acapyHost, RestTemplate restTemplate) {
         this.acapyHost = acapyHost;
@@ -114,7 +115,24 @@ public class AriesClient {
     public SendRequestResponseDTO sendRequest(SendRequestDTO sendRequestDTO){
         String url=UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(ISSUE_CREDENTIAL_RECORDS_SEND_REQUEST).build().toUriString();
         return restTemplate.postForObject(url,sendRequestDTO,SendRequestResponseDTO.class);
+
     }
 
+ public GetCredentialsResponseDTO getCredentials(){
+     String url=UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(GET_CREDENTIAL_DEFINITIONS).build().toUriString();
+         return restTemplate.getForObject(url, GetCredentialsResponseDTO.class);
+
+    }
+
+    public IssueCredentialsResponseDTO issueCredentials(IssueCredentialsDTO issueCredentialsDTO){
+        String url=UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(ISSUE_CREDENTIAL_RECORDS_ISSUE).build().toUriString();
+        return restTemplate.postForObject(url,issueCredentialsDTO,IssueCredentialsResponseDTO.class);
+
+    }
+
+    public StoreCredentialsResponseDTO storeCredentials(StoreCredentialsDTO storeCredentialsDTO){
+        String url=UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(ISSUE_CREDENTIAL_RECORDS_STORE).build().toUriString();
+        return restTemplate.postForObject(url,storeCredentialsDTO, StoreCredentialsResponseDTO.class);
+    }
 
 }

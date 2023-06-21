@@ -10,7 +10,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Service
 public class HolderHelper {
 
-//pacient
+
     @NonNull
     private AriesClient holderClient;
 
@@ -38,6 +38,14 @@ public class HolderHelper {
 
     public SendRequestResponseDTO sendRequest(SendRequestDTO sendRequestDTO){
         return holderClient.sendRequest((sendRequestDTO));
+    }
+
+    public GetCredentialsResponseDTO getCredentials(){
+        return holderClient.getCredentials();
+    }
+
+    public StoreCredentialsResponseDTO storeCredentials(StoreCredentialsDTO storeCredentialsDTO){
+        return holderClient.storeCredentials(storeCredentialsDTO);
     }
 
 
