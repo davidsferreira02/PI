@@ -14,8 +14,7 @@ import java.util.List;
 public class SendProposalDTO {
 
 
-    @JsonProperty("comment")
-    private String comment;
+
 
     @JsonProperty("connection_id")
     private String connection_id;
@@ -38,7 +37,7 @@ public class SendProposalDTO {
         private String type;
 
         @JsonProperty("attributes")
-        private List<Attributes> attributes;
+        private List<Attribute> attributes;
 
     }
 
@@ -47,7 +46,7 @@ public class SendProposalDTO {
     @NoArgsConstructor
 
     @AllArgsConstructor
-    public class Attributes {
+    public class Attribute {
 
         @JsonProperty("mine-type")
         private String mine_type;

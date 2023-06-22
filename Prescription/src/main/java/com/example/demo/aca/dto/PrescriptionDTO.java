@@ -20,10 +20,10 @@ public class PrescriptionDTO {
     @NotEmpty
     private String title;
 
-
+    @NotEmpty(message = "You aren´t this doctor")
     private String doctorName;
 
-    @NotEmpty
+   @NotEmpty(message = "Name of patient doesn't exist")
     private String patientName;
 
     @NotEmpty

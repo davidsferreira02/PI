@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Data
 
@@ -27,7 +28,7 @@ public class GetCredentialsResponseDTO {
     @AllArgsConstructor
     public class Results {
         @JsonProperty("attrs")
-        private List<String> attrs;
+        private Map<String, String> attrs;
         @JsonProperty("cred_def_id")
         private String cred_def_id;
 

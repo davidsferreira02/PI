@@ -3,18 +3,11 @@ package com.example.demo.service;
 
 import com.example.demo.aca.HolderHelper;
 import com.example.demo.aca.dto.*;
-import com.example.demo.model.Prescription;
-import com.example.demo.repository.PrescriptionRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
-
-@org.springframework.stereotype.Service
+@Service
 @RequiredArgsConstructor
 public class HolderService {
 
@@ -22,8 +15,7 @@ public class HolderService {
     private final HolderHelper holderHelper;
 
 
-
-    public ReceivedInvitationResponseDTO receivedConnection(InvitationDTO invitationDTO)  {
+    public ReceivedInvitationResponseDTO receivedConnection(InvitationDTO invitationDTO) {
 
         ReceivedInvitationResponseDTO receivedInvitationResponseDTO = holderHelper.outOfBandReceiveInvitation(invitationDTO);
         holderHelper.didExchangeAcceptInvitation(receivedInvitationResponseDTO.getConnection_id());
@@ -35,20 +27,22 @@ public class HolderService {
 
     }
 
-    public SendProposalResponseDTO sendProposal(SendProposalDTO sendProposalDTO){
+    public SendProposalResponseDTO sendProposal(SendProposalDTO sendProposalDTO) {
         return holderHelper.sendProposal(sendProposalDTO);
     }
 
-    public SendRequestResponseDTO sendRequest(SendRequestDTO sendRequestDTO){
+    public SendRequestResponseDTO sendRequest(SendRequestDTO sendRequestDTO) {
         return holderHelper.sendRequest(sendRequestDTO);
     }
 
-    public GetCredentialsResponseDTO getCredentials(){
+    public GetCredentialsResponseDTO getCredentials() {
         return holderHelper.getCredentials();
     }
-    public StoreCredentialsResponseDTO storeCredentials(StoreCredentialsDTO storeCredentialsDTO){
+
+    public StoreCredentialsResponseDTO storeCredentials(StoreCredentialsDTO storeCredentialsDTO) {
         return holderHelper.storeCredentials(storeCredentialsDTO);
     }
+
 
 
 

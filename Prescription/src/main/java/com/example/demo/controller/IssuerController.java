@@ -4,6 +4,7 @@ import com.example.demo.aca.dto.*;
 
 import com.example.demo.model.User;
 import com.example.demo.service.IssuerService;
+import com.example.demo.service.PrescriptionService;
 import com.example.demo.service.UserService;
 import jakarta.validation.Valid;
 import lombok.NonNull;
@@ -27,8 +28,12 @@ public class IssuerController {
 
     @NonNull
     private final IssuerService issuerService;
-@NonNull
+    @NonNull
     private final UserService userService;
+
+    @NonNull
+
+    private final PrescriptionService prescriptionService;
 
     @PostMapping("/create-invitation")
     public CreateInvitationResponseDTO createConnection() {
@@ -62,25 +67,33 @@ public class IssuerController {
     }
 
     @PostMapping("issue-credentials")
-    public IssueCredentialsResponseDTO issueCredentials(@RequestBody() IssueCredentialsDTO issueCredentialsDTO){
-        return issuerService.issueCredentials(issueCredentialsDTO);
+    public IssueCredentialsResponseDTO issueCredentials() {
+        return issuerService.issueCredentials();
     }
 
+
     @GetMapping("/prescription/create")
-    public String showPrescriptionForm(Model model){
-        // create model object to store form data
+    public String showPrescriptionForm(Model model) {
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userService.findUserByEmail(currentPrincipalName);
-        if(user.getRole().equals("doctor")) {
-            PrescriptionDTO prescription = new PrescriptionDTO();
-            model.addAttribute("prescription", prescription);
+        if (user.getRole().equals("doctor")) {
+
+            IssueCredentialsResponseDTO issueCredentialsResponseDTO = issuerService.issueCredentials();// what I put here ?? Instead, using database i need to implement getCredentials on both sides holder and issuer?
+            model.addAttribute("prescription", issueCredentialsResponseDTO);
             return "createPrescription";
         }
         return null;
     }
 
+    @PostMapping("/save")
+    public String Prescription(@Valid @ModelAttribute("prescription") PrescriptionDTO prescriptionDTO) {
 
+
+        prescriptionService.savePrescription(prescriptionDTO);
+        return "redirect:/users";
+    }
 
 
 }

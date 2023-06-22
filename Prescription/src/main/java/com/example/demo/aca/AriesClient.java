@@ -124,9 +124,9 @@ public class AriesClient {
 
     }
 
-    public IssueCredentialsResponseDTO issueCredentials(IssueCredentialsDTO issueCredentialsDTO){
+    public IssueCredentialsResponseDTO issueCredentials(){
         String url=UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(ISSUE_CREDENTIAL_RECORDS_ISSUE).build().toUriString();
-        return restTemplate.postForObject(url,issueCredentialsDTO,IssueCredentialsResponseDTO.class);
+        return restTemplate.postForObject(url,null,IssueCredentialsResponseDTO.class);
 
     }
 

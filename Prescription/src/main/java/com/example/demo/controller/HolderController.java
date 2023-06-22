@@ -1,9 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.aca.dto.*;
-import com.example.demo.model.Prescription;
 import com.example.demo.model.User;
-import com.example.demo.repository.PrescriptionRepository;
 import com.example.demo.service.HolderService;
 import com.example.demo.service.UserService;
 import lombok.NonNull;
@@ -15,8 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Controller
@@ -30,10 +26,9 @@ public class HolderController {
     @NonNull
     private final UserService userService;
 
-    //private PrescriptionService prescriptionService;
 
-    @NonNull
-    private PrescriptionRepository prescriptionRepository;
+
+
 
     @PostMapping("/receive-invitation")
     public ReceivedInvitationResponseDTO receivedConnection(@RequestBody InvitationDTO invitationDTO) throws IOException {
@@ -58,42 +53,31 @@ public class HolderController {
     }
 
     @PostMapping("/store-credentials")
-    public StoreCredentialsResponseDTO storeCredentials(@RequestBody StoreCredentialsDTO storeCredentialsDTO){
+    public StoreCredentialsResponseDTO storeCredentials(@RequestBody StoreCredentialsDTO storeCredentialsDTO) {
         return holderService.storeCredentials(storeCredentialsDTO);
     }
 
 
+    // I don´t need anything more on this function ??
 
     @GetMapping("/prescription")
-    public String getPrescription(Model model,GetCredentialsDTO getCredentialsDTO) {
+    public String getPrescription(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userService.findUserByEmail(currentPrincipalName);
         if (user.getRole().equals("patient")) {
-         GetCredentialsResponseDTO getCredentialResponse=holderService.getCredentials();
-
-           //prescription=prescriptionService.findAllByPacient(USER.GETname());
-            List<Prescription> prescription = prescriptionRepository.findAll();
-            List<Prescription> prescriptionsPacients=new ArrayList<>();
-            for(Prescription prescription1:prescription) {
-
-              if(  prescription1.getPatientName().equals(user.getName())){
-                  prescriptionsPacients.add(prescription1);
-              }
-
-                  model.addAttribute("prescription",prescriptionsPacients);
-
+            GetCredentialsResponseDTO getCredentialResponse = holderService.getCredentials();
+            if (!getCredentialResponse.getResults().isEmpty()) {
+                model.addAttribute("prescription", getCredentialResponse.getResults());
             }
-            return "prescription";
-            /*
-            if(!getCredentialResponse.getAttrs().isEmpty()) {
-                model.addAttribute("prescription",getCredentialResponse.getAttrs());
-                return "prescription";
-            }*/
+
 
         }
-        return null;
+        return "prescription";
+
+
     }
-
-
 }
+
+
+
