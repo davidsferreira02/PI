@@ -2,10 +2,7 @@ package com.example.demo.aca.dto;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -30,10 +27,12 @@ public class PrescriptionDTO {
     private String medication;
 
 
-    private LocalDate expiredAt;
 
 
+/*@NonNull
     private LocalDate createdAt;
+@NonNull
+    private LocalDate expiredAt;*/
 
     @NotEmpty
     private String dosage;

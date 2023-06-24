@@ -64,12 +64,12 @@ public class HolderService implements PrescriptionService {
         attributes.setName("dosage");
         attributes.setMine_type("plain/text");
         attributes.setValue(prescriptionDTO.getDosage());
-        attributes.setName("expiredAt");
+   /*     attributes.setName("expiredAt");
         attributes.setMine_type("yyyy-MM-dd");
         attributes.setValue(prescriptionDTO.getExpiredAt().toString());
         attributes.setName("createdAt");
         attributes.setMine_type("yyyy-MM-dd");
-        attributes.setValue(prescriptionDTO.getCreatedAt().toString());
+        attributes.setValue(prescriptionDTO.getCreatedAt().toString());*/
         attributes.setName("medication");
         attributes.setMine_type("plain/text");
         attributes.setValue(prescriptionDTO.getMedication());

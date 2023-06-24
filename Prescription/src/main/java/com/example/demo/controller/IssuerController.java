@@ -79,15 +79,15 @@ public class IssuerController {
         String currentPrincipalName = authentication.getName();
         User user = userService.findUserByEmail(currentPrincipalName);
         if (user.getRole().equals("doctor")) {
-
-          //  IssueCredentialsResponseDTO issueCredentialsResponseDTO = issuerService.issueCredentials(IssueCredentia);// what I put here ?? Instead, using database i need to implement getCredentials on both sides holder and issuer?
-            model.addAttribute("prescription", issueCredentialsResponseDTO);
+            PrescriptionDTO prescription = new PrescriptionDTO();
+            model.addAttribute("prescription", prescription);
             return "createPrescription";
+
         }
         return null;
     }
 //  i need to call send-offer and send-request if yes where in function showPrescriptionform or Prescription?
-    @PostMapping("/save")
+    @PostMapping("/prescription/save")
     public String Prescription(@Valid @ModelAttribute("prescription") PrescriptionDTO prescriptionDTO) {
 
 

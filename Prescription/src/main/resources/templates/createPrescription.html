@@ -26,7 +26,7 @@
         <h2 class="text-center">Create Prescription</h2>
       </div>
       <div class="card-body">
-        <form method="post" role="form" th:action="@{/prescription/save}" th:object="${prescription}">
+        <form method="post" role="form" th:action="@{/issuer/prescription/save}" th:object="${prescription}">
 
           <div class="form-group mb-3">
             <label class="form-label">Title</label>
@@ -62,9 +62,6 @@
             <p th:errors="*{doctorName}" class="text-danger" th:if="${#fields.hasErrors('doctorName')}"></p>
           </div>
 
-
-
-
           <div class="form-group mb-3">
             <label class="form-label">Medication</label>
             <textarea class="form-control"
@@ -88,6 +85,7 @@
           </div>
 
 
+
           <div class="form-group mb-3">
             <button class="btn btn-primary" type="submit">Create Prescription</button>
           </div>
@@ -96,3 +94,5 @@
     </div>
   </div>
 </div>
+</body>
+</html>
