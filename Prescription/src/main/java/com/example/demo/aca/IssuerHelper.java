@@ -38,8 +38,8 @@ public class IssuerHelper {
         return issuerClient.sendOffer(sendOfferDTO);
     }
 
-    public IssueCredentialsResponseDTO issueCredentials (){
-        return issuerClient.issueCredentials();
+    public IssueCredentialsResponseDTO issueCredentials (IssueCredentialsDTO issueCredentialsDTO){
+        return issuerClient.issueCredentials(issueCredentialsDTO);
     }
 
 

@@ -58,13 +58,14 @@ public class HolderController {
     }
 
 
-    // I don´t need anything more on this function ??
+    // I don´t need to call here send-Proposal and storeCredentials here?,if yes how to call sendProposal with sendProposalDTO argument?
 
     @GetMapping("/prescription")
     public String getPrescription(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userService.findUserByEmail(currentPrincipalName);
+
         if (user.getRole().equals("patient")) {
             GetCredentialsResponseDTO getCredentialResponse = holderService.getCredentials();
             if (!getCredentialResponse.getResults().isEmpty()) {

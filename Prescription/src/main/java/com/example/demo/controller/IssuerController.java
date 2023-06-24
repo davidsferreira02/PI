@@ -67,8 +67,8 @@ public class IssuerController {
     }
 
     @PostMapping("issue-credentials")
-    public IssueCredentialsResponseDTO issueCredentials() {
-        return issuerService.issueCredentials();
+    public IssueCredentialsResponseDTO issueCredentials(IssueCredentialsDTO issueCredentialsDTO) {
+        return issuerService.issueCredentials(issueCredentialsDTO);
     }
 
 
@@ -80,13 +80,13 @@ public class IssuerController {
         User user = userService.findUserByEmail(currentPrincipalName);
         if (user.getRole().equals("doctor")) {
 
-            IssueCredentialsResponseDTO issueCredentialsResponseDTO = issuerService.issueCredentials();// what I put here ?? Instead, using database i need to implement getCredentials on both sides holder and issuer?
+          //  IssueCredentialsResponseDTO issueCredentialsResponseDTO = issuerService.issueCredentials(IssueCredentia);// what I put here ?? Instead, using database i need to implement getCredentials on both sides holder and issuer?
             model.addAttribute("prescription", issueCredentialsResponseDTO);
             return "createPrescription";
         }
         return null;
     }
-
+//  i need to call send-offer and send-request if yes where in function showPrescriptionform or Prescription?
     @PostMapping("/save")
     public String Prescription(@Valid @ModelAttribute("prescription") PrescriptionDTO prescriptionDTO) {
 
