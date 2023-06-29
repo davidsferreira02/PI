@@ -5,20 +5,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collections;
 import java.util.List;
-
+import java.util.Map;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class SendProposalDTO {
 
-
-
-
     @JsonProperty("connection_id")
     private String connection_id;
-
 
     @JsonProperty("credential_preview")
     private CredentialPreview credentialPreview;
@@ -26,28 +23,18 @@ public class SendProposalDTO {
     @JsonProperty("filter")
     private Filter filter;
 
-
     @Data
-
     @NoArgsConstructor
-
     @AllArgsConstructor
     public class CredentialPreview {
-        @JsonProperty("type")
-        private String type;
-
         @JsonProperty("attributes")
         private List<Attribute> attributes;
-
     }
 
     @Data
-
     @NoArgsConstructor
-
     @AllArgsConstructor
     public class Attribute {
-
         @JsonProperty("mine-type")
         private String mine_type;
 
@@ -56,22 +43,13 @@ public class SendProposalDTO {
 
         @JsonProperty("value")
         private String value;
-
-
     }
 
     @Data
-
     @NoArgsConstructor
-
     @AllArgsConstructor
     public class Filter {
-
-        @JsonProperty("dif")
-        List<String> dif;
         @JsonProperty("indy")
-        List<String> indy;
+        private Map indy= Collections.emptyMap();
     }
-
-
 }

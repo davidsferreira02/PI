@@ -35,12 +35,7 @@ public class HolderController {
         return holderService.receivedConnection(invitationDTO);
     }
 
-    @GetMapping("/connections")
-    public ConnectionsResponseDTO connections() {
 
-        return holderService.connections();
-
-    }
 
     @PostMapping("/send-proposal")
     public SendProposalResponseDTO sendProposal(@RequestBody SendProposalDTO sendProposalDTO) {

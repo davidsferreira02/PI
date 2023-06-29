@@ -34,6 +34,14 @@ public class IssuerHelper {
         return issuerClient.credentialDefinitions(credentialDefinitionDTO);
     }
 
+    public GetOfferResponseDTO getOffer(GetOfferDTO getOfferDTO){
+        return issuerClient.getOffer(getOfferDTO);
+    }
+
+    public ConnectionsResponseDTO connections() {
+        return issuerClient.getConnections();
+    }
+
     public SendOfferResponseDTO sendOffer (SendOfferDTO sendOfferDTO){
         return issuerClient.sendOffer(sendOfferDTO);
     }

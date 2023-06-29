@@ -40,6 +40,8 @@ public class AriesClient {
 
     private static final String GET_CREDENTIAL_DEFINITIONS = "/credentials/get_credentials";
 
+    private static final String GET_OFFER="/issue-credential-2.0/records/<THREAD_ID>";
+
 
     public AriesClient(String acapyHost, RestTemplate restTemplate) {
         this.acapyHost = acapyHost;
@@ -105,6 +107,12 @@ public class AriesClient {
     public SendProposalResponseDTO sendProposal(SendProposalDTO sendProposalDTO) {
         String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(ISSUE_CREDENTIAL_SEND_PROPOSAL).build().toUriString();
         return restTemplate.postForObject(url, sendProposalDTO, SendProposalResponseDTO.class);
+    }
+
+
+    public GetOfferResponseDTO getOffer(GetOfferDTO getOfferDTO){
+        String url = UriComponentsBuilder.newInstance().scheme("http").host(acapyHost).path(GET_OFFER).build().toUriString();
+        return restTemplate.getForObject(url, GetOfferResponseDTO.class);
     }
 
     public SendOfferResponseDTO sendOffer(SendOfferDTO sendOfferDTO){

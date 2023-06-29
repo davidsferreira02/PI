@@ -66,6 +66,11 @@ public class IssuerController {
         return issuerService.sendOffer(sendOfferDTO);
     }
 
+    @GetMapping("/get-offer")
+    public GetOfferResponseDTO getOffer(@RequestBody() GetOfferDTO getOfferDTO) {
+        return issuerService.getOffer(getOfferDTO);
+    }
+
     @PostMapping("issue-credentials")
     public IssueCredentialsResponseDTO issueCredentials(IssueCredentialsDTO issueCredentialsDTO) {
         return issuerService.issueCredentials(issueCredentialsDTO);
@@ -95,6 +100,14 @@ public class IssuerController {
         return "redirect:/users";
     }
 
+
+
+    @GetMapping("/connections")
+    public ConnectionsResponseDTO connections() {
+
+        return issuerService.connections();
+
+    }
 
 }
 

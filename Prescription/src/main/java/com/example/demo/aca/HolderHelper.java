@@ -28,9 +28,7 @@ public class HolderHelper {
         return holderClient.acceptInvitation(connectionId);
     }
 
-    public ConnectionsResponseDTO connections() {
-        return holderClient.getConnections();
-    }
+
 
     public SendProposalResponseDTO sendProposal(SendProposalDTO sendProposalDTO) {
         return holderClient.sendProposal(sendProposalDTO);
@@ -39,6 +37,8 @@ public class HolderHelper {
     public SendRequestResponseDTO sendRequest(SendRequestDTO sendRequestDTO){
         return holderClient.sendRequest((sendRequestDTO));
     }
+
+
 
     public GetCredentialsResponseDTO getCredentials(){
         return holderClient.getCredentials();
