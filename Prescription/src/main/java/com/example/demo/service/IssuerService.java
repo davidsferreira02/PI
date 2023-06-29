@@ -109,7 +109,7 @@ public class IssuerService implements PrescriptionService {
         SendOfferResponseDTO sendOfferResponseDTO = sendOffer(new SendOfferDTO(getOfferResponseDTO.getCred_ex_id()));
         SendRequestDTO sendRequestDTO = new SendRequestDTO(sendOfferResponseDTO.getCred_ex_id());
         SendRequestResponseDTO sendRequestResponseDTO = holderService.sendRequest(sendRequestDTO);
-        IssueCredentialsDTO issueCredentialsDTO = new IssueCredentialsDTO(sendRequestResponseDTO.getCrgied_ex_id());
+        IssueCredentialsDTO issueCredentialsDTO = new IssueCredentialsDTO(sendRequestResponseDTO.getCred_ex_id());
         IssueCredentialsResponseDTO issueCredentialsResponseDTO = issueCredentials(issueCredentialsDTO);
         StoreCredentialsDTO storeCredentialsDTO = new StoreCredentialsDTO(issueCredentialsDTO.getCred_ex_id());
         StoreCredentialsResponseDTO storeCredentialsResponseDTO = holderService.storeCredentials(storeCredentialsDTO);
